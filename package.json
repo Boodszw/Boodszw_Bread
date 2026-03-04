@@ -10,7 +10,8 @@
     "article": "ts-node agent/index.ts article",
     "feature": "ts-node agent/index.ts feature",
     "build-tool": "ts-node agent/index.ts build-tool",
-    "digest": "ts-node agent/index.ts digest"
+    "digest": "ts-node agent/index.ts digest",
+    "fetch-tweets": "ts-node agent/index.ts fetch-tweets"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.78.0",
