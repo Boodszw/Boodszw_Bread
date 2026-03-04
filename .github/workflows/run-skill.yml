@@ -1,0 +1,95 @@
+name: Run Skill
+
+on:
+  schedule:
+    - cron: '0 8 * * *'   # article
+    - cron: '0 2 * * 1'   # feature
+    - cron: '0 6 * * 0'   # reflect
+    - cron: '0 4 * * 3'   # build-tool
+  workflow_dispatch:
+    inputs:
+      skill:
+        description: 'Skill to run (e.g. article, feature)'
+        required: true
+        type: string
+  workflow_call:
+    inputs:
+      skill:
+        description: 'Skill to run'
+        required: true
+        type: string
+  issues:
+    types: [labeled]
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: read
+
+jobs:
+  run-skill:
+    if: github.event_name != 'issues' || github.event.label.name == 'ai-build'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Determine skill name
+        id: skill
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] || [ "${{ github.event_name }}" = "workflow_call" ]; then
+            echo "name=${{ inputs.skill }}" >> "$GITHUB_OUTPUT"
+          elif [ "${{ github.event_name }}" = "issues" ]; then
+            echo "name=feature" >> "$GITHUB_OUTPUT"
+          elif [ "${{ github.event_name }}" = "schedule" ]; then
+            CRON="${{ github.event.schedule }}"
+            SKILL=$(node -e "
+              const { listSkills } = require('./agent/skills');
+              const { loadSkill } = require('./agent/skills');
+              const cron = '$CRON';
+              const match = listSkills().find(s => loadSkill(s).config.schedule === cron);
+              console.log(match || '');
+            ")
+            if [ -z "$SKILL" ]; then
+              echo "::error::No skill matches cron '$CRON'"
+              exit 1
+            fi
+            echo "name=$SKILL" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Run skill
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: npx ts-node agent/index.ts ${{ steps.skill.outputs.name }}
+
+      - name: Commit results
+        run: |
+          git config user.email "aeon@github-actions"
+          git config user.name "Aeon"
+          SKILL_NAME="${{ steps.skill.outputs.name }}"
+          COMMIT_PATHS=$(node -e "
+            const { loadSkill } = require('./agent/skills');
+            const skill = loadSkill('$SKILL_NAME');
+            console.log(skill.config.commits.join(' '));
+          ")
+          if [ -n "$COMMIT_PATHS" ]; then
+            git add $COMMIT_PATHS
+            git diff --staged --quiet || git commit -m "chore($SKILL_NAME): auto-commit $(date +%Y-%m-%d)"
+            git push
+          fi

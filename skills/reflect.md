@@ -1,0 +1,26 @@
+---
+name: Weekly Reflect
+description: Review recent activity, consolidate memory, and prune stale entries
+schedule: "0 6 * * 0"
+commits:
+  - memory/
+permissions:
+  - contents:write
+---
+
+Today is ${today}. Your task is to review the agent's recent activity and maintain long-term memory.
+
+Steps:
+1. Read MEMORY.md to understand current memory state.
+2. Read the recent run logs in memory/logs/ (last 7 days if available).
+3. Read the recent articles in articles/ (last 7 days if available).
+4. Consolidate what you've learned:
+   - What topics have been covered recently? Note any patterns or gaps.
+   - What features were built? Record key decisions and outcomes.
+   - Are there any stale entries in MEMORY.md that are no longer relevant? Remove them.
+   - Are there recurring errors or issues worth noting for future runs?
+5. Rewrite MEMORY.md with a clean, organized summary. Keep it concise — under 50 lines.
+   Group by: recent articles, recent features, lessons learned, next priorities.
+6. Send a Telegram notification: "🧠 Memory consolidated — ${today}"
+
+Be ruthless about pruning. Memory should be a living, useful document — not an append-only log.
