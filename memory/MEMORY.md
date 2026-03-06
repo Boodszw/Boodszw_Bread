@@ -37,7 +37,10 @@
   - Sources: Nature Computational Science, Nature, ScienceDaily, Frontiers in Science, ACM Project
 
 ## Feature History
-- No features built yet.
+- **2026-03-06**: Built `search_papers` tool — Semantic Scholar API integration for academic paper search
+  - Skill file: skills/search-papers.md
+  - Capabilities: search by query, filter by date range, sort by relevance/date/citations, open access filter
+  - No API key required (free tier with auto-retry on rate limits)
 
 ## Lessons Learned
 - Digest task was run 3x on 2026-03-04 due to iteration on format (HTML→Markdown, adding links). Current best format: Markdown with clickable links, <4000 chars.
@@ -85,3 +88,11 @@
 - **Topics:** CATS Net neural network (Nature Computational Science, March 2026), Cogitate Consortium adversarial consciousness test (Nature, April 2025), biological computationalism framework, mechanistic interpretability
 - **Sources:** Nature Computational Science, Nature, ScienceDaily, Frontiers in Science, ACM Project / TheConsciousness.ai
 - **Word count:** ~800 words
+## 2026-03-06T19:45:00.000Z
+**Task:** Build reusable tool
+- Built `search_papers` tool using Semantic Scholar Academic Graph API
+- Tested with multiple queries: LLMs+neuroscience, CRISPR, BCI — all returned valid results
+- Handles rate limiting with 3-attempt retry + exponential backoff
+- Returns structured data: title, authors, abstract, citations, DOI/arXiv links, open access PDF URLs
+- Skill file saved: skills/search-papers.md
+- Tool registered via create_tool for immediate use
