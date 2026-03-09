@@ -45,11 +45,19 @@ jobs:
             HOUR=$(date -u +%-H)
             DOW=$(date -u +%w)
             CURRENT_SKILL=""
+            SKILL_ENABLED=true
             while IFS= read -r line; do
               if [[ "$line" =~ ^\ \ ([a-zA-Z0-9_-]+):\ *$ ]]; then
                 CURRENT_SKILL="${BASH_REMATCH[1]}"
+                SKILL_ENABLED=true
+              fi
+              if [[ "$line" =~ ^\ \ \ \ enabled:\ *false ]] && [ -n "$CURRENT_SKILL" ]; then
+                SKILL_ENABLED=false
               fi
               if [[ "$line" =~ ^\ \ \ \ schedule:\ *\"([^\"]+)\" ]] && [ -n "$CURRENT_SKILL" ]; then
+                if [ "$SKILL_ENABLED" = false ]; then
+                  continue
+                fi
                 IFS=' ' read -r C_MIN C_HOUR C_DOM C_MONTH C_DOW <<< "${BASH_REMATCH[1]}"
                 MATCH=true
                 [ "$C_HOUR" != "*" ] && [ "$C_HOUR" != "$HOUR" ] && MATCH=false
@@ -83,13 +91,29 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
+          TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         run: |
           SKILL_NAME="${{ steps.skill.outputs.name }}"
           TODAY=$(date -u +%Y-%m-%d)
           claude -p "Today is $TODAY. Read and execute the skill defined in skills/${SKILL_NAME}.md" --dangerously-skip-permissions
 
+      - name: Check for silent ack
+        if: contains(fromJSON('["heartbeat","github-monitor","on-chain-monitor","rss-digest","pr-review","issue-triage","dependency-check","wallet-digest","defi-monitor","token-alert","hacker-news-digest","tweet-digest","memory-flush","skill-health"]'), steps.skill.outputs.name)
+        id: ack_check
+        run: |
+          TODAY=$(date -u +%Y-%m-%d)
+          LOG_FILE="memory/logs/${TODAY}.md"
+          if [ -f "$LOG_FILE" ]; then
+            if tail -20 "$LOG_FILE" | grep -qE "_OK$"; then
+              echo "suppressed=true" >> "$GITHUB_OUTPUT"
+              echo "Nothing to report — skipping commit."
+            fi
+          fi
+
       - name: Commit results
-        if: steps.skill.outputs.name != ''
+        if: steps.skill.outputs.name != '' && steps.ack_check.outputs.suppressed != 'true'
         run: |
           git config user.email "aeon@github-actions"
           git config user.name "Aeon"

@@ -10,8 +10,9 @@ Today is ${today}. Generate and send a daily **${topic}** digest.
 
 ## Steps
 
-1. **Search for ${topic} content.** Search the web for today's most interesting
-   ${topic} news and developments. Find 3-5 compelling items.
+1. **Search for ${topic} content.** Use Claude Code's built-in WebSearch for today's most interesting
+   ${topic} news and developments. Find 3-5 compelling items. If WebSearch fails or returns thin results,
+   fall back to `tools/web-search.sh "topic"`.
 
 2. **Also search X via the X.AI API** using curl:
    ```bash

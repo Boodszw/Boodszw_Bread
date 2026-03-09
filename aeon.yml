@@ -1,18 +1,105 @@
 # Aeon configuration
 # Define which skills run and when (cron format, UTC)
 # Format: minute hour day-of-month month day-of-week
+#
+# IMPORTANT: Order matters. The scheduler picks the FIRST match.
+# Day-specific skills must be listed BEFORE daily skills at the same hour.
+# Heartbeat must always be LAST (it's the fallback for unoccupied hours).
+#
+# Set enabled: true to activate a skill. All skills default to off.
+# On-demand skills (triggered via Telegram or workflow_dispatch) work regardless.
+#   On-demand: fetch-url, research-brief, idea-capture, fetch-tweets, search-papers
 
 skills:
-  article:
-    schedule: "0 8 * * *"     # Daily at 8am UTC
-  digest:
-    schedule: "0 14 * * *"    # Daily at 2pm UTC
+  # --- Weekly skills (day-specific, listed first for priority) ---
+  changelog:
+    enabled: false
+    schedule: "0 1 * * 1"     # Monday at 1am UTC
   feature:
+    enabled: false
     schedule: "0 2 * * 1"     # Monday at 2am UTC
-  reflect:
-    schedule: "0 6 * * 0"     # Sunday at 6am UTC
+  tweet-digest:
+    enabled: false
+    schedule: "0 13 * * 3"    # Wednesday at 1pm UTC
   build-tool:
+    enabled: false
     schedule: "0 4 * * 3"     # Wednesday at 4am UTC
+  dependency-check:
+    enabled: false
+    schedule: "0 3 * * 2"     # Tuesday at 3am UTC
+  issue-triage:
+    enabled: false
+    schedule: "0 5 * * 2"     # Tuesday at 5am UTC
+  code-health:
+    enabled: false
+    schedule: "0 22 * * 5"    # Friday at 10pm UTC
+  substack-draft:
+    enabled: false
+    schedule: "0 16 * * 5"    # Friday at 4pm UTC
+  skill-health:
+    enabled: false
+    schedule: "0 1 * * 6"     # Saturday at 1am UTC
+  self-review:
+    enabled: false
+    schedule: "0 3 * * 6"     # Saturday at 3am UTC
+  reflect:
+    enabled: false
+    schedule: "0 6 * * 0"     # Sunday at 6am UTC
+  paper-digest:
+    enabled: false
+    schedule: "0 20 * * 0"    # Sunday at 8pm UTC
+  weekly-review:
+    enabled: false
+    schedule: "0 22 * * 0"    # Sunday at 10pm UTC
+  goal-tracker:
+    enabled: false
+    schedule: "0 5 * * 0"     # Sunday at 5am UTC (before reflect)
+
+  # --- Daily skills ---
+  token-alert:
+    enabled: false
+    schedule: "0 0 * * *"     # Daily at midnight UTC
+  morning-brief:
+    enabled: false
+    schedule: "0 7 * * *"     # Daily at 7am UTC
+  article:
+    enabled: false
+    schedule: "0 8 * * *"     # Daily at 8am UTC
+  gas-report:
+    enabled: false
+    schedule: "0 9 * * *"     # Daily at 9am UTC
+  github-monitor:
+    enabled: false
+    schedule: "0 10 * * *"    # Daily at 10am UTC
+  hacker-news-digest:
+    enabled: false
+    schedule: "0 11 * * *"    # Daily at 11am UTC
+  rss-digest:
+    enabled: false
+    schedule: "0 12 * * *"    # Daily at noon UTC (before digest)
+  digest:
+    enabled: false
+    schedule: "0 14 * * *"    # Daily at 2pm UTC
+  pr-review:
+    enabled: false
+    schedule: "0 15 * * *"    # Daily at 3pm UTC
+  wallet-digest:
+    enabled: false
+    schedule: "0 17 * * *"    # Daily at 5pm UTC
+  on-chain-monitor:
+    enabled: false
+    schedule: "0 18 * * *"    # Daily at 6pm UTC
+  defi-monitor:
+    enabled: false
+    schedule: "0 19 * * *"    # Daily at 7pm UTC
+  memory-flush:
+    enabled: false
+    schedule: "0 23 * * *"    # Daily at 11pm UTC
+
+  # --- Fallback (must be last) ---
+  heartbeat:
+    enabled: true
+    schedule: "0 * * * *"     # Every hour (runs when no other skill is due)
 
 # Telegram integration
 # Polls for messages every 5 minutes. Set TELEGRAM_BOT_TOKEN

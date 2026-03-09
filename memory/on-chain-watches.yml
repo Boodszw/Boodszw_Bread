@@ -1,0 +1,18 @@
+# On-chain addresses and contracts to monitor
+# The on-chain-monitor skill checks these for activity
+
+watches: []
+  # Example entries:
+  # - label: "My Wallet"
+  #   chain: base
+  #   rpc_url: https://mainnet.base.org
+  #   address: "0x..."
+  #   type: wallet
+  #   threshold: "0.1"  # ETH — alert on balance changes above this
+  #
+  # - label: "Doppler Pool"
+  #   chain: monad
+  #   rpc_url: https://rpc.monad.xyz
+  #   address: "0x..."
+  #   type: contract
+  #   events: ["Swap", "Mint", "Burn"]

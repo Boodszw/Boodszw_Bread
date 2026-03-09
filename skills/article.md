@@ -9,7 +9,8 @@ Steps:
 1. Read `memory/MEMORY.md` for context on what topics have been covered recently.
 2. Search the web for the most interesting recent developments in AI, crypto/DeFi,
    or consciousness research — pick whichever has the most compelling story today.
-3. Read 2-3 source articles to gather facts and quotes.
+   Use Claude Code's built-in WebSearch. If it fails or returns thin results, fall back to `tools/web-search.sh`.
+3. Read 2-3 source articles to gather facts and quotes. Use WebFetch (fall back to `tools/fetch-url.sh`).
 4. Write a 600-800 word article in markdown. Include:
    - A compelling title
    - A short intro hook
