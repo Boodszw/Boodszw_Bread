@@ -313,39 +313,39 @@ tools/
   web-search.sh          ← Tavily API search (fallback)
   fetch-url.sh           ← Jina Reader URL fetch (fallback)
 skills/
-  article.md             ← daily article
-  digest.md              ← daily digest
-  rss-digest.md          ← RSS feed digest
-  hacker-news-digest.md  ← HN top stories
-  paper-digest.md        ← academic paper digest
-  tweet-digest.md        ← X/Twitter digest
-  substack-draft.md      ← long-form article draft
-  research-brief.md      ← deep research dive (on-demand)
-  fetch-url.md           ← URL summarizer (on-demand)
-  fetch-tweets.md        ← tweet fetcher (on-demand)
-  search-papers.md       ← paper search reference
-  pr-review.md           ← PR auto-review
-  github-monitor.md      ← repo monitoring
-  issue-triage.md        ← issue labeling
-  changelog.md           ← weekly changelog
-  dependency-check.md    ← dep vulnerability check
-  code-health.md         ← code quality report
-  feature.md             ← feature builder (from issues)
-  build-tool.md          ← skill builder
-  token-alert.md         ← token price alerts
-  gas-report.md          ← gas price trends
-  wallet-digest.md       ← wallet activity summary
-  on-chain-monitor.md    ← contract event monitor
-  defi-monitor.md        ← DeFi position monitor
-  morning-brief.md       ← daily morning briefing
-  weekly-review.md       ← weekly retrospective
-  goal-tracker.md        ← goal progress tracker
-  idea-capture.md        ← quick note capture (on-demand)
-  heartbeat.md           ← ambient health check (fallback)
-  memory-flush.md        ← log → memory promotion
-  reflect.md             ← weekly memory consolidation
-  skill-health.md        ← skill run audit
-  self-review.md         ← agent self-audit
+  article.md             ← research trending topics, write a 600-800 word article
+  digest.md              ← search web + X/Twitter, send a topic digest via notifications
+  rss-digest.md          ← fetch RSS/Atom feeds, summarize new entries
+  hacker-news-digest.md  ← pull top HN stories, filter by your interests
+  paper-digest.md        ← query arXiv + Semantic Scholar, summarize new papers
+  tweet-digest.md        ← aggregate tweets from tracked accounts, group by theme
+  substack-draft.md      ← write a polished 800-1200 word draft with sources
+  research-brief.md      ← deep dive: web + papers + synthesis into a briefing
+  fetch-url.md           ← pull any URL, summarize key points (on-demand)
+  fetch-tweets.md        ← fetch 10 tweets from a specific X user (on-demand)
+  search-papers.md       ← Semantic Scholar API wrapper (reference tool)
+  pr-review.md           ← review open PR diffs, post actionable comments
+  github-monitor.md      ← watch repos for stale PRs, new issues, releases
+  issue-triage.md        ← auto-label and prioritize new GitHub issues
+  changelog.md           ← generate changelog from recent commits by type
+  dependency-check.md    ← scan for vulnerable or outdated dependencies
+  code-health.md         ← report TODOs, dead code, missing tests, large files
+  feature.md             ← read a GitHub issue, implement it, open a PR
+  build-tool.md          ← design and create new skills from ideas
+  token-alert.md         ← check CoinGecko for price/volume anomalies
+  gas-report.md          ← query RPCs for gas prices, track 7-day trends
+  wallet-digest.md       ← summarize balances and transactions across wallets
+  on-chain-monitor.md    ← poll contracts for events, alert on notable activity
+  defi-monitor.md        ← check pool TVL, APR, position health, IL
+  morning-brief.md       ← aggregate priorities, headlines, schedule into one message
+  weekly-review.md       ← synthesize the week's logs into a retrospective
+  goal-tracker.md        ← compare progress against goals in MEMORY.md
+  idea-capture.md        ← capture a quick note from Telegram into memory
+  heartbeat.md           ← core loop: scan for anything needing attention
+  memory-flush.md        ← promote important log entries into MEMORY.md
+  reflect.md             ← consolidate memory, prune stale entries
+  skill-health.md        ← audit which skills ran, missed, or errored
+  self-review.md         ← review output quality, reliability, suggest improvements
 memory/
   MEMORY.md              ← long-term persistent memory
   feeds.yml              ← RSS feed URLs
