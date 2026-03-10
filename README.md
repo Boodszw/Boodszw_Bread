@@ -2,7 +2,7 @@
 
 Background intelligence that evolves with you.
 
-Autonomous agent running on GitHub Actions, powered by Claude Code. 33 skills across research, dev tooling, crypto monitoring, and productivity — all off by default, turn on what you need.
+Autonomous agent running on GitHub Actions, powered by Claude Code. 32 skills across research, dev tooling, crypto monitoring, and productivity — all off by default, turn on what you need.
 
 <p align="center">
   <img src="aeon-banner.jpg" alt="Aeon Banner" width="100%" />
@@ -27,7 +27,7 @@ Autonomous agent running on GitHub Actions, powered by Claude Code. 33 skills ac
 | `SLACK_WEBHOOK_URL` | Optional | Notifications (outbound) |
 | `XAI_API_KEY` | Optional | `digest`, `tweet-digest`, `fetch-tweets` — X/Twitter search via Grok |
 | `COINGECKO_API_KEY` | Optional | `token-alert` — works without, key improves rate limits |
-| `ALCHEMY_API_KEY` | Optional | `on-chain-monitor`, `wallet-digest`, `defi-monitor` — use in RPC URLs in `on-chain-watches.yml` |
+| `ALCHEMY_API_KEY` | Optional | `on-chain-monitor`, `wallet-digest`, `defi-monitor` — use in RPC URLs |
 
 4. **Edit `aeon.yml`** — set `enabled: true` on the skills you want
 5. **Test** — go to **Actions > Run Skill > Run workflow** and enter a skill name (e.g. `article`)
@@ -50,19 +50,18 @@ Autonomous agent running on GitHub Actions, powered by Claude Code. 33 skills ac
 
 ## How it works
 
-A GitHub Actions workflow runs every 5 minutes, checks `aeon.yml` to see if any skill is due and enabled, and if so, tells Claude Code to read and execute that skill's markdown file. After Claude finishes, the workflow commits all changes back to your repo.
+Two GitHub Actions workflows work together. A scheduler (`messages.yml`) runs every 5 minutes — it checks for incoming messages (Telegram, Discord, Slack) and matches skills from `aeon.yml` by their cron schedule. When a skill matches, it dispatches it to the runner (`aeon.yml`), which tells Claude Code to read and execute that skill's markdown file. After Claude finishes, the workflow commits all changes back to your repo.
 
 The **heartbeat** is the core loop. The scheduler checks every 5 minutes, but heartbeat itself runs hourly as the fallback — whenever no other skill is scheduled for that hour, heartbeat takes over and scans for anything that needs attention: stalled PRs, flagged memory items, missed skill runs, urgent issues. If nothing needs attention, it exits silently. If something does, it notifies you and logs the finding.
 
 ```
-Every 5 min, cron fires
-  → Checks aeon.yml — is any skill scheduled and enabled right now?
-    → Yes → runs that skill (article, digest, monitor, etc.)
-    → No  → exits immediately (~10 seconds, no cost)
-  → On the hour, if no other skill matched:
-    → Heartbeat runs (ambient awareness)
-      → Nothing to report → exits silently, no commit
-      → Something found   → notifies you, logs it, commits
+Every 5 min, messages.yml fires
+  → Poll job: checks Telegram/Discord/Slack for new messages
+    → Message found → runs Claude to interpret and respond
+    → No message   → exits (~10 seconds)
+  → Schedule job: checks aeon.yml for skills due now
+    → Match found → dispatches to aeon.yml (skill runner)
+    → No match    → exits (~10 seconds)
 ```
 
 Monitor-type skills that find nothing log an ack (`HEARTBEAT_OK`, `TOKEN_ALERT_OK`, etc.) and the workflow skips the commit — zero noise when nothing needs attention.
@@ -87,7 +86,7 @@ The schedule format is standard cron (`minute hour day-of-month month day-of-wee
 
 ### Changing the check frequency
 
-The workflow cron (`*/5 * * * *`) controls how often the scheduler checks. You can change this in `.github/workflows/aeon.yml`:
+The workflow cron (`*/5 * * * *`) controls how often the scheduler checks. You can change this in `.github/workflows/messages.yml`:
 
 ```yaml
 schedule:
@@ -133,6 +132,8 @@ GitHub Actions bills by **minutes used per month**. Only the time a runner is ac
 | `research-brief` | Deep dive on a topic: web search + papers + synthesis |
 | `fetch-tweets` | Search X by keyword, user, or hashtag |
 | `search-papers` | Academic paper search via Semantic Scholar API |
+| `reddit-digest` | Top posts from tracked subreddits |
+| `security-digest` | Critical/high-severity security advisories from GitHub Advisory DB |
 
 ### Dev & Code
 
@@ -145,6 +146,7 @@ GitHub Actions bills by **minutes used per month**. Only the time a runner is ac
 | `code-health` | Report on TODOs, dead code, test coverage gaps |
 | `feature` | Build features from GitHub issues labeled `ai-build` |
 | `build-skill` | Design and create new skills |
+| `search-skill` | Search the open agent skills ecosystem via [skills CLI](https://github.com/vercel-labs/skills) |
 
 ### Crypto / On-chain
 
@@ -200,11 +202,16 @@ Aeon fans out notifications to every configured channel. Set the secret and it a
 
 ## Config files
 
-| File | Purpose |
-|------|---------|
-| `memory/feeds.yml` | RSS/Atom feed URLs for `rss-digest` |
-| `memory/watched-repos.md` | GitHub repos monitored by `github-monitor`, `pr-review`, etc. |
-| `memory/on-chain-watches.yml` | Blockchain addresses/contracts for `on-chain-monitor`, `wallet-digest`, `defi-monitor` |
+Config files are created on demand — each skill documents the format it expects in a `## Config` section in its `SKILL.md`. Common ones:
+
+| File | Created by | Purpose |
+|------|------------|---------|
+| `memory/feeds.yml` | `rss-digest` | RSS/Atom feed URLs |
+| `memory/subreddits.yml` | `reddit-digest` | Subreddits to monitor |
+| `memory/watched-repos.md` | `github-monitor`, `pr-review`, etc. | GitHub repos to monitor |
+| `memory/on-chain-watches.yml` | `on-chain-monitor`, `wallet-digest`, `defi-monitor` | Blockchain addresses/contracts |
+
+None of these files ship with the template — create them when you enable the relevant skill.
 
 ## Telegram integration
 
@@ -367,15 +374,13 @@ skills/                  ← each skill is a directory with SKILL.md (Agent Skil
   on-chain-monitor/      ← poll contracts for events, alert on notable activity
   defi-monitor/          ← check pool TVL, APR, position health, IL
   heartbeat/             ← core loop: scan for anything needing attention
-  ...                    ← 30 skills total (see skills/ directory)
+  ...                    ← 32 skills total (see skills/ directory)
 memory/
   MEMORY.md              ← index: goals, active topics, pointers to topic files
   topics/                ← detailed notes by topic (crypto.md, research.md, etc.)
   logs/                  ← daily activity logs (YYYY-MM-DD.md)
-  feeds.yml              ← RSS feed URLs
-  watched-repos.md       ← GitHub repos to monitor
-  on-chain-watches.yml   ← blockchain addresses to watch
 .github/
   workflows/
-    aeon.yml             ← unified workflow (skills + Telegram)
+    aeon.yml             ← skill runner (workflow_dispatch, issues)
+    messages.yml         ← message polling + skill scheduler (cron, repository_dispatch)
 ```
