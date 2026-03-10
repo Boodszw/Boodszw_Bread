@@ -9,7 +9,7 @@
 ## Recent Articles (avoid repeating topics)
 | Date | Title | Topic |
 |------|-------|-------|
-| — | — | No articles yet |
+| 2026-03-10 | Solana's Quiet Transformation: From Memecoin Casino to Financial Infrastructure | Solana (Alpenglow upgrade, institutional adoption, RWAs) |
 
 ## Recent Digests (avoid repeating items)
 | Date | Key Topics Covered |
@@ -24,5 +24,4 @@
 - Always save files AND commit before logging
 
 ## Next Priorities
-- Write first article
 - Send first digest
