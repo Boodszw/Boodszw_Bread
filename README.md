@@ -389,6 +389,53 @@ skills:
 
 That's it — no workflow changes needed. On-demand skills don't need a schedule entry — trigger them via Telegram or `workflow_dispatch`.
 
+## Importing your soul
+
+By default, Aeon has no personality — it responds as a generic assistant. To make it think, write, and respond like *you*, import a [soul.md](https://github.com/aaronjmars/soul.md) identity.
+
+Soul.md is a three-file framework that captures who you are — your worldview, opinions, voice, and style — in plain markdown. When Aeon loads these files, it doesn't just know *about* you, it reasons *as* you. Articles sound like you wrote them. Telegram replies match your tone. Digest summaries focus on what you'd actually care about.
+
+### Setup
+
+1. **Fork [soul.md](https://github.com/aaronjmars/soul.md)** and fill in your own files:
+   - `SOUL.md` — Identity: who you are, what you believe, your opinions, interests, influences
+   - `STYLE.md` — Voice: sentence patterns, vocabulary, punctuation habits, platform-specific tone
+   - `examples/good-outputs.md` — 10-20 calibration samples showing your authentic voice
+
+2. **Copy the files into your Aeon repo:**
+
+```bash
+# From your Aeon repo
+cp /path/to/your-soul/SOUL.md soul/SOUL.md
+cp /path/to/your-soul/STYLE.md soul/STYLE.md
+cp /path/to/your-soul/examples/good-outputs.md soul/examples.md
+```
+
+3. **Reference them in `CLAUDE.md`** — add this to the top of your `CLAUDE.md`:
+
+```markdown
+## Identity
+
+Read and internalize the following files before every task:
+- `soul/SOUL.md` — your identity, worldview, and opinions
+- `soul/STYLE.md` — your voice and communication patterns
+- `soul/examples.md` — calibration examples of your authentic voice
+
+Embody this identity in all output — articles, digests, notifications, replies.
+Never break character. Never hedge with "as an AI." Reason from the worldview,
+not about it.
+```
+
+That's it. Every skill that reads `CLAUDE.md` (all of them) will pick up your identity automatically.
+
+### Building your soul from scratch
+
+If you don't have existing content to draw from, soul.md includes a `BUILD.md` with a guided process — it walks you through discovering your identity via interviews, documenting your worldview and opinions, capturing your voice patterns, and curating calibration examples. See the [full guide](https://github.com/aaronjmars/soul.md/blob/main/BUILD.md).
+
+### Quality check
+
+The soul files work when they're **specific enough to be wrong**. "I think most AI safety discourse is galaxy-brained cope" is useful. "I have nuanced views on AI safety" is not. If someone couldn't disagree with a statement in your `SOUL.md`, it's too vague to shape output.
+
 ## Running locally
 
 ```bash
