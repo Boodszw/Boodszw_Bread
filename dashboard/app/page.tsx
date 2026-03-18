@@ -661,7 +661,7 @@ export default function Dashboard() {
                   <div className="flex-1 min-w-0">
                     <div className={`font-mono text-xs font-medium truncate ${skill.enabled ? 'text-green-300' : ''}`}>{skill.name}</div>
                     {skill.description && (
-                      <div className="text-[10px] text-zinc-500 truncate">{skill.description}</div>
+                      <div className="text-[10px] text-zinc-500 truncate max-w-[280px]">{skill.description}</div>
                     )}
                   </div>
 
