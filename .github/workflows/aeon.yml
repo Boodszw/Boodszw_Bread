@@ -130,6 +130,7 @@ jobs:
         run: npm install -g @anthropic-ai/claude-code
 
       - name: Run
+        id: run
         if: steps.work.outputs.mode != ''
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
@@ -196,8 +197,45 @@ jobs:
           Use this variable (override the default in the skill file):
           var=$VAR"
           fi
-          echo "$PROMPT" | claude -p - \
-            --model "$MODEL" --allowedTools "$ALLOWED"
+          CLAUDE_OUTPUT=$(echo "$PROMPT" | claude -p - \
+            --model "$MODEL" --allowedTools "$ALLOWED" \
+            --output-format json)
+
+          # Extract and print the text result so logs still show skill output
+          echo "$CLAUDE_OUTPUT" | jq -r '.result // empty'
+
+          # Parse token usage from JSON response
+          INPUT_TOKENS=$(echo "$CLAUDE_OUTPUT" | jq '.usage.input_tokens // 0')
+          OUTPUT_TOKENS=$(echo "$CLAUDE_OUTPUT" | jq '.usage.output_tokens // 0')
+          CACHE_READ=$(echo "$CLAUDE_OUTPUT" | jq '.usage.cache_read_input_tokens // 0')
+          CACHE_CREATION=$(echo "$CLAUDE_OUTPUT" | jq '.usage.cache_creation_input_tokens // 0')
+          TOTAL_TOKENS=$((INPUT_TOKENS + OUTPUT_TOKENS))
+
+          echo "SKILL_INPUT_TOKENS=$INPUT_TOKENS" >> "$GITHUB_OUTPUT"
+          echo "SKILL_OUTPUT_TOKENS=$OUTPUT_TOKENS" >> "$GITHUB_OUTPUT"
+          echo "SKILL_CACHE_READ_TOKENS=$CACHE_READ" >> "$GITHUB_OUTPUT"
+          echo "SKILL_CACHE_CREATION_TOKENS=$CACHE_CREATION" >> "$GITHUB_OUTPUT"
+          echo "SKILL_TOTAL_TOKENS=$TOTAL_TOKENS" >> "$GITHUB_OUTPUT"
+
+          echo "::notice::Token usage — input: $INPUT_TOKENS, output: $OUTPUT_TOKENS, cache_read: $CACHE_READ, cache_creation: $CACHE_CREATION, total: $TOTAL_TOKENS"
+
+      - name: Log token usage
+        if: steps.work.outputs.mode != ''
+        run: |
+          SKILL="${{ steps.skill.outputs.name }}"
+          INPUT="${{ steps.run.outputs.SKILL_INPUT_TOKENS }}"
+          OUTPUT="${{ steps.run.outputs.SKILL_OUTPUT_TOKENS }}"
+          CACHE_READ="${{ steps.run.outputs.SKILL_CACHE_READ_TOKENS }}"
+          CACHE_CREATION="${{ steps.run.outputs.SKILL_CACHE_CREATION_TOKENS }}"
+          TOTAL="${{ steps.run.outputs.SKILL_TOTAL_TOKENS }}"
+          echo "## Token Usage: $SKILL" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Metric | Tokens |" >> "$GITHUB_STEP_SUMMARY"
+          echo "|--------|--------|" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Input | $INPUT |" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Output | $OUTPUT |" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Cache read | $CACHE_READ |" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Cache creation | $CACHE_CREATION |" >> "$GITHUB_STEP_SUMMARY"
+          echo "| **Total** | **$TOTAL** |" >> "$GITHUB_STEP_SUMMARY"
 
       - name: Commit results
         if: steps.work.outputs.mode != ''
