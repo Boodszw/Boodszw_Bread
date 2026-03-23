@@ -9,27 +9,38 @@ on:
         required: true
         type: choice
         options:
+          - action-converter
           - article
           - build-skill
           - changelog
           - code-health
+          - daily-routine
           - defi-monitor
+          - defi-overview
           - digest
           - feature
           - fetch-tweets
+          - github-issues
           - github-monitor
           - goal-tracker
           - hacker-news-digest
           - heartbeat
+          - hn-digest
           - idea-capture
           - issue-triage
+          - list-digest
           - memory-flush
           - morning-brief
           - on-chain-monitor
           - paper-digest
+          - paper-pick
+          - polymarket
+          - polymarket-comments
           - pr-review
           - reddit-digest
           - reflect
+          - refresh-x
+          - reply-maker
           - research-brief
           - rss-digest
           - search-papers
@@ -37,10 +48,14 @@ on:
           - security-digest
           - self-review
           - skill-health
+          - startup-idea
           - token-alert
+          - token-movers
+          - trending-coins
           - tweet-digest
           - wallet-digest
           - weekly-review
+          - write-tweet
       model:
         description: 'Model'
         required: false

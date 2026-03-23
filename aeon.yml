@@ -1,9 +1,14 @@
 # Aeon configuration
 #
 # Enable skills by setting enabled: true. Multiple skills at the same time run in parallel.
+# Set var: "value" to pass a default parameter to the skill.
 
 skills:
+  # --- Morning aggregation (7 AM UTC) ---
   morning-brief:
+    enabled: false
+    schedule: "0 7 * * *"
+  daily-routine:
     enabled: false
     schedule: "0 7 * * *"
   rss-digest:
@@ -12,10 +17,16 @@ skills:
   hacker-news-digest:
     enabled: false
     schedule: "0 7 * * *"
+  hn-digest:
+    enabled: false
+    schedule: "0 7 * * *"
   paper-digest:
     enabled: false
     schedule: "0 7 * * *"
   tweet-digest:
+    enabled: false
+    schedule: "0 7 * * *"
+  reddit-digest:
     enabled: false
     schedule: "0 7 * * *"
 
@@ -29,9 +40,18 @@ skills:
   github-monitor:
     enabled: false
     schedule: "0 9 * * *"
+  github-issues:
+    enabled: false
+    schedule: "0 9 * * *"
 
   # --- Midday (12 PM UTC) ---
   token-alert:
+    enabled: false
+    schedule: "0 12 * * *"
+  token-movers:
+    enabled: false
+    schedule: "0 12 * * *"
+  trending-coins:
     enabled: false
     schedule: "0 12 * * *"
   wallet-digest:
@@ -43,12 +63,39 @@ skills:
   defi-monitor:
     enabled: false
     schedule: "0 12 * * *"
+  defi-overview:
+    enabled: false
+    schedule: "0 12 * * *"
+  polymarket:
+    enabled: false
+    schedule: "0 12 * * *"
+  polymarket-comments:
+    enabled: false
+    schedule: "0 12 * * *"
 
   # --- Afternoon (2 PM UTC) ---
   article:
     enabled: false
     schedule: "0 14 * * *"
   digest:
+    enabled: false
+    schedule: "0 14 * * *"
+  research-brief:
+    enabled: false
+    schedule: "0 14 * * *"
+  paper-pick:
+    enabled: false
+    schedule: "0 14 * * *"
+  search-papers:
+    enabled: false
+    schedule: "0 14 * * *"
+  search-skill:
+    enabled: false
+    schedule: "0 14 * * *"
+  security-digest:
+    enabled: false
+    schedule: "0 14 * * *"
+  idea-capture:
     enabled: false
     schedule: "0 14 * * *"
 
@@ -66,6 +113,23 @@ skills:
     enabled: false
     schedule: "0 16 * * *"
 
+  # --- X / social (5 PM UTC) ---
+  fetch-tweets:
+    enabled: false
+    schedule: "0 17 * * *"
+  refresh-x:
+    enabled: false
+    schedule: "0 17 * * *"
+  list-digest:
+    enabled: false
+    schedule: "0 17 * * *"
+  write-tweet:
+    enabled: false
+    schedule: "0 17 * * *"
+  reply-maker:
+    enabled: false
+    schedule: "0 17 * * *"
+
   # --- Evening / meta (6 PM UTC) ---
   goal-tracker:
     enabled: false
@@ -80,6 +144,12 @@ skills:
     enabled: false
     schedule: "0 18 * * *"
   memory-flush:
+    enabled: false
+    schedule: "0 18 * * *"
+  action-converter:
+    enabled: false
+    schedule: "0 18 * * *"
+  startup-idea:
     enabled: false
     schedule: "0 18 * * *"
 
