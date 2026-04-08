@@ -58,6 +58,7 @@ skills:
   changelog: { enabled: false, schedule: "0 16 * * *" }
   feature: { enabled: false, schedule: "0 16 * * *" }
   build-skill: { enabled: false, schedule: "0 16 * * *" }
+  autoresearch: { enabled: false, schedule: "workflow_dispatch", var: "" } # on-demand — set var to skill name to evolve
 
   # --- X / social (5 PM UTC) ---
   fetch-tweets: { enabled: false, schedule: "0 17 * * *" }
