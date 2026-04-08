@@ -16,6 +16,8 @@ author:
 header_pages:
   - index.md
   - articles.md
+  - activity.md
+  - memory.md
   - skills.md
 
 # Permalinks

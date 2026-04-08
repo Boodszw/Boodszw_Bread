@@ -1,6 +1,6 @@
 ---
 name: Update Gallery
-description: Sync articles to the GitHub Pages gallery with proper Jekyll frontmatter
+description: Sync articles, activity logs, and memory to the GitHub Pages site
 var: ""
 tags: [content]
 ---
@@ -12,12 +12,17 @@ Publish Aeon's article outputs to the GitHub Pages gallery at `docs/_posts/`.
 
 1. Read `memory/MEMORY.md` for context on recent articles.
 
-2. List all markdown files in `articles/` (excluding `.gitkeep` and `feed.xml`):
+2. Run the site data sync script to populate `docs/_data/` with logs, memory, topics, and article metadata:
+   ```bash
+   bash scripts/sync-site-data.sh
+   ```
+
+3. List all markdown files in `articles/` (excluding `.gitkeep` and `feed.xml`):
    ```bash
    ls articles/*.md 2>/dev/null | grep -v feed.xml | sort
    ```
 
-3. For each article file (or just the one in `${var}` if set), process it into a Jekyll post:
+4. For each article file (or just the one in `${var}` if set), process it into a Jekyll post:
 
    **a) Parse the filename to extract date and slug.**
    Filenames follow patterns like:
@@ -54,28 +59,29 @@ Publish Aeon's article outputs to the GitHub Pages gallery at `docs/_posts/`.
    <article body — everything after the frontmatter if present, or the full content>
    ```
 
-4. After processing all articles, check if any new files were added to `docs/_posts/`:
+5. After processing all articles, check if any new files were added to `docs/_posts/` or `docs/_data/`:
    ```bash
-   git status docs/_posts/
+   git status docs/
    ```
 
-5. If there are new or changed files, stage and commit them:
+6. If there are new or changed files, stage and commit them:
    ```bash
-   git add docs/_posts/
-   git diff --cached --quiet || git commit -m "chore(gallery): sync articles to Jekyll posts $(date +%Y-%m-%d)"
+   git add docs/_posts/ docs/_data/
+   git diff --cached --quiet || git commit -m "chore(gallery): sync articles and site data $(date +%Y-%m-%d)"
    ```
 
-6. Push to the current branch (main or default):
+7. Push to the current branch (main or default):
    ```bash
    git push
    ```
 
-7. Update `memory/logs/${today}.md` with:
+8. Update `memory/logs/${today}.md` with:
    - How many articles were processed
    - How many new posts were added to `docs/_posts/`
    - Any articles that were skipped (already present)
+   - Whether site data (logs, memory, topics) was synced
 
-8. Send a notification via `./notify`:
+9. Send a notification via `./notify`:
    "Gallery updated: N articles published to GitHub Pages.\n\nhttps://aaronjmars.github.io/aeon"
 
 ## Notes
