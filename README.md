@@ -6,7 +6,7 @@
 
 <p align="center">
   <strong>Background intelligence that evolves with you.</strong><br>
-  Autonomous agent on GitHub Actions, powered by Claude Code. 65 skills across research, dev tooling, crypto monitoring, and productivity — all off by default, enable what you need.
+  Autonomous agent on GitHub Actions, powered by Claude Code. 68 skills across research, dev tooling, crypto monitoring, and productivity — all off by default, enable what you need.
 </p>
 
 <p align="center">
@@ -106,16 +106,16 @@ Non-Claude models are available in the workflow dispatch dropdown and per-skill 
 | `article` | Research trending topics and write a publication-ready article |
 | `digest` | Generate and send a daily digest on a configurable topic |
 | `rss-digest` | Fetch, summarize, and deliver RSS feed highlights |
-| `hacker-news-digest` | Top HN stories filtered by keywords relevant to your interests |
 | `hn-digest` | Top Hacker News stories filtered by interests |
 | `paper-digest` | Find and summarize new papers matching tracked research interests (via HF Papers API) |
 | `paper-pick` | Find the one paper you should read today (via HF Papers API) |
 | `last30` | Cross-platform 30-day social research — Reddit, X, HN, Polymarket, and the web clustered into one report |
+| `deep-research` | Exhaustive multi-source synthesis on any topic — far beyond a digest |
+| `technical-explainer` | Visual technical explanation of a topic with AI-generated hero image |
 | `tweet-digest` | Aggregate and summarize tweets from tracked accounts |
 | `list-digest` | Top tweets from tracked X lists in the past 24 hours |
 | `research-brief` | Deep dive on a topic combining web search, papers, and synthesis |
 | `fetch-tweets` | Search X/Twitter for tweets by keyword, username, or both |
-| `search-papers` | Search for recent academic papers on topics of interest |
 | `reddit-digest` | Fetch and summarize top Reddit posts from tracked subreddits |
 | `security-digest` | Monitor recent security advisories from GitHub Advisory DB |
 
@@ -128,9 +128,18 @@ Non-Claude models are available in the workflow dispatch dropdown and per-skill 
 | `issue-triage` | Label and prioritize new GitHub issues on watched repos |
 | `changelog` | Generate a changelog from recent commits across watched repos |
 | `code-health` | Weekly report on TODOs, dead code, and test coverage gaps |
+| `skill-security-scan` | Audit imported skills for shell injection, secret exfiltration, and prompt injection |
+| `github-trending` | Top 10 trending repos on GitHub right now |
+| `push-recap` | Daily deep-dive recap of all pushes — reads diffs, explains what changed and why |
+| `repo-pulse` | Daily report on new stars, forks, and traffic for watched repos |
+| `repo-article` | Write an article about the current state and progress of a watched repo |
+| `repo-actions` | Generate actionable ideas to improve the repo — features, integrations, growth |
 | `feature` | Build new features from GitHub issues or improve the agent |
 | `build-skill` | Design and build a new reusable skill |
+| `create-skill` | Generate a complete new skill from a one-line prompt |
+| `autoresearch` | Evolve a skill by generating variations, evaluating them, and keeping the best version |
 | `search-skill` | Search the open agent skills ecosystem for useful skills to install |
+| `auto-workflow` | Analyze a URL and generate a tailored `aeon.yml` schedule with skill suggestions |
 | `spawn-instance` | Clone this Aeon agent into a new repo — fork, configure skills, register in fleet |
 | `fleet-control` | Monitor managed Aeon instances — check health, dispatch skills, aggregate status |
 | `fork-fleet` | Inventory active forks, detect diverged work, surface upstream contribution candidates |
@@ -146,14 +155,18 @@ Non-Claude models are available in the workflow dispatch dropdown and per-skill 
 | `defi-monitor` | Check pool health, positions, and yield rates for tracked protocols |
 | `defi-overview` | Daily overview of DeFi activity from DeFiLlama — TVL, top chains, top protocols |
 | `polymarket` | Trending and top markets on Polymarket — volume, new markets, biggest movers |
-| `polymarket-comments` | Top trending Polymarket markets and most interesting comments |
+| `monitor-polymarket` | Monitor specific prediction markets for 24h price moves, volume changes, and comments |
+| `monitor-runners` | Top 5 tokens that ran hardest in the past 24h across major chains via GeckoTerminal |
+| `token-pick` | One token recommendation and one prediction market pick based on live data |
 | `treasury-info` | Wallet holdings overview via Bankr API with block explorer fallback |
+| `distribute-tokens` | Send tokens to contributors via Bankr Agent API (supports Twitter handles and EVM addresses) |
 
 ### Social & Writing
 | Skill | Description |
 |-------|-------------|
 | `write-tweet` | Generate 10 tweet drafts across 5 size tiers on a topic from today's outputs |
 | `reply-maker` | Generate two reply options for 5 tweets from tracked accounts or topics |
+| `remix-tweets` | Fetch 10 random past tweets and craft 10 rephrased versions in your voice |
 | `refresh-x` | Fetch a tracked X/Twitter account's latest tweets and save the gist to memory |
 
 ### Productivity
@@ -173,10 +186,11 @@ Non-Claude models are available in the workflow dispatch dropdown and per-skill 
 | `heartbeat` | Proactive ambient check — surface anything worth attention |
 | `memory-flush` | Promote important recent log entries into `MEMORY.md` |
 | `reflect` | Review recent activity, consolidate memory, and prune stale entries |
-| `skill-health` | Check which scheduled skills haven't run recently |
+| `skill-health` | Audit skill quality metrics, detect API degradation, and report health trends |
 | `self-review` | Weekly audit of what Aeon did, what failed, and what to improve |
+| `cost-report` | Weekly API cost report — token usage per skill and model with trends |
 | `rss-feed` | Generate an Atom XML feed from articles in the repo |
-| `update-gallery` | Sync articles to the GitHub Pages gallery with Jekyll frontmatter |
+| `update-gallery` | Sync articles, activity logs, and memory to the GitHub Pages site |
 
 ---
 
@@ -512,7 +526,7 @@ Every skill reads `CLAUDE.md`, so identity propagates automatically.
 ```
 CLAUDE.md                ← agent identity (auto-loaded by Claude Code)
 aeon.yml                 ← skill schedules, chains, and enabled flags
-skills.json              ← machine-readable skill catalog (65 skills)
+skills.json              ← machine-readable skill catalog (68 skills)
 ./notify                 ← multi-channel notifications
 ./add-skill              ← import skills from GitHub repos
 ./export-skill           ← package skills for standalone distribution
@@ -523,7 +537,7 @@ skills/                  ← each skill is SKILL.md (Agent Skills format)
   article/
   digest/
   heartbeat/
-  ...                    ← 65 skills total
+  ...                    ← 68 skills total
 workflows/               ← GitHub Agentic Workflow templates (.md)
 memory/
   MEMORY.md              ← goals, active topics, pointers
