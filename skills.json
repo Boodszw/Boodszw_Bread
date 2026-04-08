@@ -2,7 +2,7 @@
   "version": "1.0",
   "generated": "2026-04-04T00:00:00Z",
   "repo": "aaronjmars/aeon",
-  "total": 52,
+  "total": 53,
   "categories": {
     "research": "Research & Content",
     "dev": "Dev & Code",
@@ -530,6 +530,16 @@
       "var": "",
       "files": 1,
       "install": "./add-skill aaronjmars/aeon update-gallery"
+    },
+    {
+      "slug": "fork-fleet",
+      "name": "Fork Fleet",
+      "description": "Inventory active Aeon forks, detect diverged work, and surface upstream contribution candidates",
+      "category": "dev",
+      "schedule": "0 10 * * 1",
+      "var": "",
+      "files": 1,
+      "install": "./add-skill aaronjmars/aeon fork-fleet"
     }
   ],
   "install_all": "./add-skill aaronjmars/aeon --all",
