@@ -326,7 +326,11 @@ jobs:
           git add -A
           git diff --staged --quiet && exit 0
           git commit -m "chore($SOURCE): auto-commit $(date +%Y-%m-%d)"
-          for i in 1 2 3; do
+          # Random jitter (0-10s) before first push to spread out concurrent runners
+          JITTER=$((RANDOM % 10))
+          echo "Waiting ${JITTER}s jitter before push..."
+          sleep "$JITTER"
+          for i in 1 2 3 4 5; do
             if git pull --rebase origin main; then
               git push -u origin HEAD && exit 0
             else
@@ -346,8 +350,11 @@ jobs:
                 GIT_EDITOR=true git rebase --continue
               fi
             fi
-            echo "Push attempt $i failed, retrying..."
+            # Exponential backoff with jitter: ~2s, ~4s, ~8s, ~16s
+            BACKOFF=$(( (2 ** i) + RANDOM % 5 ))
+            echo "Push attempt $i failed, retrying in ${BACKOFF}s..."
+            sleep "$BACKOFF"
           done
-          echo "Failed to push after 3 attempts"
+          echo "Failed to push after 5 attempts"
           exit 1
 
