@@ -47,7 +47,7 @@ jobs:
           # Previous hour for catch-up (GitHub Actions cron can miss windows)
           PREV_HOUR=$(( (HOUR + 23) % 24 ))
 
-          # Cron field matcher — supports: *, N, N-M (ranges), N,M (lists), */N, N-M/N (steps)
+          # Cron field matcher — supports: *, N, N-M (ranges), N,M (lists), */N, N/step, N-M/step (steps)
           cron_match() {
             local field="$1" value="$2"
             [ "$field" = "*" ] && return 0
@@ -56,10 +56,13 @@ jobs:
               local base="${field%/*}" interval="${field#*/}"
               if [ "$base" = "*" ]; then
                 [ $((value % interval)) -eq 0 ] && return 0
-              else
+              elif [[ "$base" == *-* ]]; then
                 # Range with step: 1-10/2
                 local lo="${base%-*}" hi="${base#*-}"
                 [ "$value" -ge "$lo" ] && [ "$value" -le "$hi" ] && [ $(( (value - lo) % interval )) -eq 0 ] && return 0
+              else
+                # Start with step: 2/2 means "from 2, every 2nd" (no upper bound)
+                [ "$value" -ge "$base" ] && [ $(( (value - base) % interval )) -eq 0 ] && return 0
               fi
               return 1
             fi
