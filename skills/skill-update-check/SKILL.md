@@ -91,18 +91,16 @@ Today is ${today}. Your task is to audit imported skills for upstream changes si
    **Diff summary:**
    [describe what changed in plain language based on the patch — what instructions were added, removed, or modified]
 
-   **Recommendation:** Safe to update / Review before updating / Do NOT update (security risk)
+   **Recommendation:** Safe to update — run `./add-skill <source_repo> <skill-name>` to accept / Review before updating / Do NOT update (security risk)
    ```
 
-9. **Update `skills.lock`** for any skills that are safe to track at the new SHA. If a skill has a CHANGED status and a PASS security verdict, update its entry:
+9. **Update `last_checked` only — do NOT advance the locked SHA.** For every entry (including UP-TO-DATE ones), set a `last_checked` timestamp so the next run knows when each was last verified:
    ```bash
-   jq --arg name "skill_name" --arg sha "new_sha" --arg at "$(date -u '+%Y-%m-%dT%H:%M:%SZ')" \
-     '[.[] | if .skill_name == $name then .commit_sha = $sha | .last_checked = $at else . end]' \
+   jq --arg at "$(date -u '+%Y-%m-%dT%H:%M:%SZ')" \
+     '[.[] | .last_checked = $at]' \
      skills.lock > skills.lock.tmp && mv skills.lock.tmp skills.lock
    ```
-   Do NOT update the lock for skills with WARN or FAIL security findings — those require manual review.
-
-   Add a `last_checked` field to ALL entries (even UP-TO-DATE ones) so the next run knows when each was last verified.
+   **Never auto-advance `commit_sha` in `skills.lock`**, even when the security verdict is PASS. Advancing the lock is a supply-chain trust decision that requires explicit human approval. The notification in step 10 will tell the operator how to advance manually.
 
 10. **Send notification** only if at least one skill has CHANGED status. Format:
     ```
@@ -116,6 +114,8 @@ Today is ${today}. Your task is to audit imported skills for upstream changes si
 
     [If any FAIL]: ⚠ Security regression detected in [skill-name] — do NOT run until reviewed.
     [If any WARN]: Review recommended for [skill-name] before next execution.
+    [If any PASS]: To accept the update and advance the lock, re-run:
+      ./add-skill <source_repo> <skill-name>
 
     Full report: articles/skill-update-check-${today}.md
     ```
