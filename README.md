@@ -15,7 +15,7 @@
 
 ---
 
-## Why "most autonomous"?
+## Why "most autonomous agent framework"?
 
 Most agent tools put you in the driver's seat — approve this tool call, review this diff, confirm this action. That's useful for interactive work. But there's a whole class of tasks where you just want the work *done* while you're not there: morning briefs, market monitoring, PR reviews, research digests, security scans.
 
