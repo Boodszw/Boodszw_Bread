@@ -6,7 +6,7 @@
 
 <p align="center">
   <strong>The most autonomous agent framework.</strong><br>
-  Give it a direction — it'll research, build, deploy to Vercel and GitHub, and send you what it finds. No approval loops. No babysitting. Configure once, forget forever.
+  Give it a direction — it'll leverage +90 skills like deep research, PR reviews, market monitoring, Vercel deploys, and more to get it done. No approval loops. No babysitting. Configure once, forget forever.
 </p>
 
 <p align="center">
