@@ -21,16 +21,16 @@ Most agent tools put you in the driver's seat — approve this tool call, review
 
 Aeon is built for that. Here's how it compares:
 
-|  | Aeon | Claude Code / Cursor | Devin | AutoGPT | Hermes | OpenClaw | Zapier / Make |
-|--|------|----------------------|-------|---------|--------|---------|---------------|
-| Runs unattended on a schedule | Yes | No | No | Partially | Yes | No | Yes |
-| Self-heals when skills fail | Yes | No | No | No | No | No | No |
-| Monitors its own output quality | Yes | No | No | No | No | No | No |
-| Persistent memory across runs | Yes | No | Per-session | Per-session | Limited | No | No |
-| Reactive triggers (auto-responds to conditions) | Yes | No | No | No | No | No | Limited |
-| Fixes its own broken skills | Yes | No | No | No | No | No | No |
-| Zero infrastructure | Yes (GitHub Actions) | Local | Cloud | Self-hosted | Self-hosted | Self-hosted | Cloud (SaaS) |
-| Reasons about tasks | Yes | Yes | Yes | Yes | Yes | Yes | No |
+|  | Aeon | Claude Code | Hermes | OpenClaw |
+|--|------|------------|--------|---------|
+| Runs unattended on a schedule | Yes | No | Yes | No |
+| Self-heals when skills fail | Yes | No | No | No |
+| Monitors its own output quality | Yes | No | No | No |
+| Persistent memory across runs | Yes | No | Limited | No |
+| Reactive triggers (auto-responds to conditions) | Yes | No | No | No |
+| Fixes its own broken skills | Yes | No | No | No |
+| Zero infrastructure | Yes (GitHub Actions) | Local | Self-hosted | Self-hosted |
+| Reasons about tasks | Yes | Yes | Yes | Yes |
 
 The key difference: **other agents are interactive tools you use. Aeon is an autonomous system you configure and walk away from.** It decides when to run, what to check, and when to bother you. It scores its own output, detects degradation, and patches failing skills without intervention.
 
