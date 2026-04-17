@@ -69,6 +69,18 @@ xai_search() {
   if [ "$http_code" != "200" ]; then
     echo "::warning::xai-prefetch: FAILED $outfile (HTTP $http_code)"
     echo "::warning::xai-prefetch: response: $(echo "$response" | head -c 300)"
+    # Log persistent errors to memory so skills and health checks can see them
+    if [ "$http_code" = "429" ] || [ "$http_code" = "401" ] || [ "$http_code" = "403" ]; then
+      mkdir -p memory/logs
+      TODAY=$(date -u +%Y-%m-%d)
+      NOW=$(date -u +%H:%M)
+      ERROR_MSG=$(echo "$response" | jq -r '.error // .message // "unknown"' 2>/dev/null | head -c 200)
+      echo "" >> "memory/logs/${TODAY}.md"
+      echo "## XAI Prefetch Error ($NOW UTC)" >> "memory/logs/${TODAY}.md"
+      echo "- **Skill:** $SKILL" >> "memory/logs/${TODAY}.md"
+      echo "- **HTTP:** $http_code" >> "memory/logs/${TODAY}.md"
+      echo "- **Error:** $ERROR_MSG" >> "memory/logs/${TODAY}.md"
+    fi
     return 1
   fi
 
