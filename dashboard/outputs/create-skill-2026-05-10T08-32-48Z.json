@@ -1,0 +1,174 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "create-skill"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_skillname",
+        "text_description",
+        "separator_1",
+        "stack_metadata",
+        "separator_2",
+        "stack_branch",
+        "stack_pr",
+        "stack_trigger"
+      ]
+    },
+    "heading_skillname": {
+      "type": "Heading",
+      "props": {
+        "text": "playwright-fetch",
+        "level": "h2"
+      }
+    },
+    "text_description": {
+      "type": "Text",
+      "props": {
+        "text": "Browser-render JS-heavy URLs via headless Chromium with WebFetch fallback.",
+        "variant": "body"
+      }
+    },
+    "separator_1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "stack_metadata": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "text_schedule",
+        "text_model",
+        "text_secrets"
+      ]
+    },
+    "text_schedule": {
+      "type": "Text",
+      "props": {
+        "text": "Schedule: workflow_dispatch (disabled by default)",
+        "variant": "body"
+      }
+    },
+    "text_model": {
+      "type": "Text",
+      "props": {
+        "text": "Model: claude-sonnet-4-6",
+        "variant": "body"
+      }
+    },
+    "text_secrets": {
+      "type": "Text",
+      "props": {
+        "text": "Required secrets: none",
+        "variant": "body"
+      }
+    },
+    "separator_2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "stack_branch": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "text_branch",
+        "link_commit"
+      ]
+    },
+    "text_branch": {
+      "type": "Text",
+      "props": {
+        "text": "Branch pushed: create-skill/playwright-fetch",
+        "variant": "body"
+      }
+    },
+    "link_commit": {
+      "type": "Link",
+      "props": {
+        "label": "commit 86c4906",
+        "href": "https://github.com/Boodszw/aeon/commit/86c4906"
+      }
+    },
+    "stack_pr": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "text_pr_header",
+        "link_pr",
+        "text_pr_note"
+      ]
+    },
+    "text_pr_header": {
+      "type": "Text",
+      "props": {
+        "text": "PR open:",
+        "variant": "body"
+      }
+    },
+    "link_pr": {
+      "type": "Link",
+      "props": {
+        "label": "https://github.com/Boodszw/aeon/pull/new/create-skill/playwright-fetch",
+        "href": "https://github.com/Boodszw/aeon/pull/new/create-skill/playwright-fetch"
+      }
+    },
+    "text_pr_note": {
+      "type": "Text",
+      "props": {
+        "text": "(Actions token can't auto-create — click to open)",
+        "variant": "caption"
+      }
+    },
+    "stack_trigger": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "text_trigger_label",
+        "text_trigger_cmd"
+      ]
+    },
+    "text_trigger_label": {
+      "type": "Text",
+      "props": {
+        "text": "Trigger:",
+        "variant": "body"
+      }
+    },
+    "text_trigger_cmd": {
+      "type": "Text",
+      "props": {
+        "text": "dispatch skill=`playwright-fetch` var=`https://news.ycombinator.com|selector:.titleline`",
+        "variant": "caption"
+      }
+    }
+  }
+}
