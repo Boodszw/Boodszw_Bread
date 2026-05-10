@@ -1,0 +1,42 @@
+*Token Movers — 2026-05-10*
+
+_Mixed-to-green tape: 65/100 top alts green, median +1.6%; majors flat (BTC/ETH +0.7%, SOL ~0%) while LAB and XEC carry the leaderboard._
+
+*Top Winners (24h)*
+1. XEC (eCash) — $0.00001015  +33.1% / 7d +41.8% / 1h +8.8%  •  $62.1M / #187  [BREAKOUT, PUMP-RISK]
+2. JASMY (JasmyCoin) — $0.007325  +13.4% / 7d +30.2% / 1h −2.7%  •  $103M / #135
+3. LAB (LAB) — $4.86  +11.1% / 7d +344.6% / 1h −0.5%  •  $50.0M / #132  [TRENDING+UP]
+4. ZANO (Zano) — $11.23  +10.2% / 7d +24.3% / 1h +0.6%  •  $1.4M / #208
+5. UNI (Uniswap) — $4.000  +8.8% / 7d +24.4% / 1h +1.8%  •  $311M / #39
+6. BSV (Bitcoin SV) — $17.57  +7.4% / 7d +11.3% / 1h +0.5%  •  $9.2M / #137
+7. UB (Unibase) — $0.1206  +7.3% / 7d −17.6% / 1h +0.6%  •  $13.8M / #156
+8. BEAT (Audiera) — $0.5392  +6.3% / 7d −10.8% / 1h −6.2%  •  $7.4M / #235
+9. BILL (Billions Network) — $0.1006  +4.8% / 7d n/a / 1h −6.3%  •  $333M / #176
+10. PIEVERSE (Pieverse) — $0.8126  +4.3% / 7d +11.7% / 1h +1.5%  •  $10.1M / #201
+
+*Top Losers (24h)*
+1. SKYAI (SkyAI) — $0.5476  −19.0% / 7d +25.1% / 1h +2.2%  •  $58.3M / #103
+2. STRK (Starknet) — $0.05221  −14.9% / 7d +32.7% / 1h −1.9%  •  $113M / #155  [CAPITULATION]
+3. CFG (Centrifuge) — $0.2941  −10.4% / 7d +43.9% / 1h +0.7%  •  $35.5M / #210
+4. WLFI (World Liberty Financial) — $0.06786  −9.8% / 7d +20.9% / 1h −0.2%  •  $95.4M / #44
+5. B (BUILDon) — $0.3562  −8.0% / 7d −6.3% / 1h −0.3%  •  $41.2M / #139
+6. ONDO (Ondo) — $0.4052  −7.8% / 7d +46.0% / 1h −1.6%  •  $223M / #46  [TRENDING+DOWN]
+7. JTO (Jito) — $0.5182  −7.7% / 7d +34.6% / 1h +0.1%  •  $63.9M / #175
+8. ICP (Internet Computer) — $3.440  −7.7% / 7d +46.2% / 1h −0.8%  •  $116M / #47
+9. FIL (Filecoin) — $1.180  −7.0% / 7d +28.4% / 1h −0.5%  •  $139M / #76
+10. XPL (Plasma) — $0.1027  −5.9% / 7d +15.3% / 1h +0.2%  •  $44.9M / #167
+
+*Trending*
+1. Solayer (LAYER) — #737, $0.1404, 24h +53.4%  [PUMP-RISK]
+2. TROLL (TROLL) — #320, $0.0955, 24h +83.0%  [PUMP-RISK]
+3. wojak (WOJAK) — ~$1.24e-7, 24h +3.8%
+4. Billions Network (BILL) — #176, $0.1002, 24h +4.5%
+5. LAB (LAB) — #132, $4.86, 24h +11.7%
+6. Venice Token (VVV) — #88, $15.17, 24h +0.2%
+7. Ondo (ONDO) — #46, $0.4047, 24h −7.3%  [TRENDING+DOWN]
+
+*Notable*
+• XEC: +33% on the day, +42% on the week — sustained BREAKOUT but rank 187 keeps it in PUMP-RISK territory; treat the move as low-quality.
+• LAB: +345% over 7 days and still trending — parabolic; the negative 1h is the first thing to watch for fade.
+• TROLL +83% (rank 320) and LAYER +53% (rank 737): trending microcaps, both screen as PUMP-RISK; classic momentum-chase setup.
+• ONDO −7.8% after +46% week, with JTO / ICP / FIL / CFG / STRK all bleeding into +25–46% weekly gains — coordinated profit-take across last week's leaders, not fundamentals.

@@ -1,0 +1,42 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "token-movers",
+        "description": "2026-05-10"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "text_dispatch",
+        "alert_sandbox"
+      ]
+    },
+    "text_dispatch": {
+      "type": "Text",
+      "props": {
+        "text": "Dispatched to .pending-notify",
+        "variant": "lead"
+      }
+    },
+    "alert_sandbox": {
+      "type": "Alert",
+      "props": {
+        "title": "Sandbox",
+        "message": "bash exec blocked, message file written for post-run delivery",
+        "type": "info"
+      }
+    }
+  }
+}
