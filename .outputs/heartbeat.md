@@ -1,18 +1,18 @@
-`HEARTBEAT_OK · STATUS_PAGE=OK`
+`HEARTBEAT_WATCH · STATUS_PAGE=WATCH — wrote docs/status.md`
 
 ## Summary
 
-Ran scheduled 14:38 UTC heartbeat. All checks green:
+**Heartbeat 20:00 UTC scheduled run — 🟡 WATCH**
 
-- **P0**: cron-state.json shows 3 entries (heartbeat, token-movers, create-skill), all ✅. No failures, stuck dispatches, consecutive_failures, or chronic skills. Self-check: heartbeat last_success ~7h47m ago, well under 36h threshold.
-- **P1**: No open PRs. Issues disabled on repo.
-- **P2**: Nothing flagged in MEMORY.md.
-- **P3**: Midday cohort (9 enabled skills with 12:00–13:30 UTC cron slots) still has no entries despite windows passing. Already noted in 10:48 log → suppressed per dedup. Flagged in today's log for re-check at 18:00 — if still empty, scheduler may not be dispatching the noon batch.
+- **P0:** No failed/stuck/degraded skills. 6 cron-state entries, all `success`. Heartbeat self-check fresh (~5.5h since last success).
+- **P1:** No open PRs, issues disabled on repo.
+- **P2:** Nothing flagged in MEMORY.md.
+- **P3 (new flag):** `skill-health` 18:00 UTC slot did not dispatch — no cron-state entry 2h+ after schedule. The 14:38 heartbeat had predicted this as the test point for the suspected scheduler-missing-slots issue. **Test failed:** today's 12:00 / 12:30 / 18:00 cohorts all skipped while 13:00 / 13:30 / 20:00 dispatched fine (the 13:00 batch was back-dispatched at 14:37:48Z alongside heartbeat).
+- **Dedup:** Midday-cohort miss already noted in 10:48 + 14:38 logs — suppressed; only the new skill-health miss surfaced in the notification.
 
 **Files modified:**
-- `docs/status.md` — regenerated (Updated 14:38 UTC, Overall 🟢 OK, next run = skill-health at 18:00 UTC)
-- `memory/logs/2026-05-10.md` — appended 14:38 heartbeat entry
+- `docs/status.md` — regenerated, Overall 🟡 WATCH, next run = cost-report 07:00 UTC Mon
+- `memory/logs/2026-05-10.md` — appended 20:09 UTC heartbeat entry
+- `.pending-notify/heartbeat-2026-05-10-2009.md` — queued single notification
 
-**No notification sent** (no new attention item beyond what 10:48 already covered).
-
-**Follow-up**: Watch the 18:00 UTC skill-health run — if midday cohort entries are still missing, escalate to a notification.
+**Follow-up:** Pattern of dropped slots (12:00 / 12:30 / 18:00) warrants attention — likely a scheduler issue, not a per-skill bug. Worth a closer look at workflow dispatch logs if it persists into tomorrow.
