@@ -79,6 +79,7 @@ skills:
   deploy-prototype: { enabled: false, schedule: "workflow_dispatch", var: "" } # on-demand — build app and deploy to Vercel
   autoresearch: { enabled: false, schedule: "workflow_dispatch", var: "" } # on-demand — set var to skill name to evolve
   create-skill: { enabled: false, schedule: "workflow_dispatch", var: "" } # one-shot skill creator — set var to a description prompt
+  playwright-fetch: { enabled: false, schedule: "workflow_dispatch", model: "claude-sonnet-4-6", var: "" } # on-demand — render JS-heavy URL via headless Chromium (postprocess) with WebFetch fallback; set var to URL[|selector:CSS|extract:hint]
 
   # --- X / social (5 PM UTC) ---
   fetch-tweets: { enabled: false, schedule: "0 17 * * *" }
