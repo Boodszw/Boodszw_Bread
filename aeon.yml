@@ -121,6 +121,9 @@ skills:
   # --- Cost tracking (Monday 7 AM UTC, weekly) ---
   cost-report: { enabled: true, schedule: "0 7 * * 1", model: "claude-sonnet-4-6" } # weekly API cost breakdown by skill and model
 
+  # --- Billing / revenue (8:30 AM UTC, daily) ---
+  stripe-billing: { enabled: false, schedule: "30 8 * * *", model: "claude-sonnet-4-6", var: "" } # daily Stripe summary — subscription health, recent payments, failed charges, revenue (var: hours window, default 24); requires STRIPE_API_KEY secret
+
   # --- Weekly (Monday only) ---
   fork-fleet: { enabled: false, schedule: "0 10 * * 1" } # fork fleet scan — inventory active forks, detect diverged work
   fork-cohort: { enabled: false, schedule: "0 19 * * 0", model: "claude-sonnet-4-6" } # Sunday 19:00 UTC — bucket every fork by activation stage (COLD/STALE/ACTIVE/POWER) using GitHub Actions run history; week-over-week deltas; gated notify
