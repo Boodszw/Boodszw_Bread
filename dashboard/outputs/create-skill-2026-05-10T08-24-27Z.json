@@ -1,0 +1,66 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "create-skill: stripe-billing",
+        "description": "PR ready"
+      },
+      "children": [
+        "main-stack"
+      ]
+    },
+    "main-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "status-badge",
+        "branch-pushed",
+        "pr-action",
+        "permission-alert",
+        "secret-alert"
+      ]
+    },
+    "status-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "PR ready",
+        "variant": "default"
+      }
+    },
+    "branch-pushed": {
+      "type": "Text",
+      "props": {
+        "text": "Branch create-skill/stripe-billing pushed"
+      }
+    },
+    "pr-action": {
+      "type": "Link",
+      "props": {
+        "label": "Open PR manually",
+        "href": "https://github.com/Boodszw/aeon/pull/new/create-skill/stripe-billing"
+      }
+    },
+    "permission-alert": {
+      "type": "Alert",
+      "props": {
+        "title": "Permission Required",
+        "message": "Bot lacks PR-create permission",
+        "type": "warning"
+      }
+    },
+    "secret-alert": {
+      "type": "Alert",
+      "props": {
+        "title": "Secret Required",
+        "message": "STRIPE_API_KEY must be added as new secret before enabling",
+        "type": "warning"
+      }
+    }
+  }
+}

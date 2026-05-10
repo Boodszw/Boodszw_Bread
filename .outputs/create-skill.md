@@ -1,0 +1,1 @@
+create-skill stripe-billing PR ready: branch create-skill/stripe-billing pushed; open PR manually at https://github.com/Boodszw/aeon/pull/new/create-skill/stripe-billing — bot lacks PR-create perm; STRIPE_API_KEY must be added as new secret before enabling

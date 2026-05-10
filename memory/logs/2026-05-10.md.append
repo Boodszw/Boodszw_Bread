@@ -1,0 +1,10 @@
+
+### create-skill
+- Request: Stripe billing monitor — subscription status, recent payments, failed charges, daily revenue
+- Created: skills/stripe-billing/SKILL.md, scripts/prefetch-stripe-billing.sh
+- Registered in aeon.yml: schedule=`30 8 * * *`, model=`claude-sonnet-4-6`, enabled=false
+- Required secrets: STRIPE_API_KEY (NEW — operator must add to GitHub Actions secrets and to the prefetch env block in `.github/workflows/aeon.yml`)
+- Quality scores: F/V/A/Fb/O/S = 5/5/5/5/4/5
+- Branch pushed: create-skill/stripe-billing (https://github.com/Boodszw/aeon/pull/new/create-skill/stripe-billing)
+- PR creation blocked: GitHub Actions bot lacks `createPullRequest` permission on this repo; operator must click the URL above to open the PR
+- Exit: CREATE_SKILL_NEW_SECRET_REQUIRED
