@@ -1,4 +1,4 @@
 date,skill,model,input_tokens,output_tokens,cache_read,cache_creation
 2026-05-10,heartbeat,claude-opus-4-7,20,4674,572595,27603
 2026-05-10,token-movers,claude-opus-4-7,73,31162,3397639,93395
-2026-05-10,heartbeat,claude-opus-4-7,28,9479,723378,63525
+2026-05-10,narrative-tracker,claude-opus-4-7,42,15777,1575008,63399
