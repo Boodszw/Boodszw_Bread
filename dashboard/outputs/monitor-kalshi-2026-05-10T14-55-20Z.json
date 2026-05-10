@@ -1,0 +1,439 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "Kalshi monitor",
+        "description": "2026-05-10 — all quiet — watchlist empty, 5 events discovered, no moves >2pp in 24h"
+      },
+      "children": [
+        "setup_hint",
+        "sep1",
+        "btc_today_section",
+        "sep2",
+        "fed_dec_section",
+        "sep3",
+        "fed_jun_section",
+        "sep4",
+        "gdp_section",
+        "sep5",
+        "btc_may15_section",
+        "sep6",
+        "alerts_section",
+        "sep7",
+        "trending_section",
+        "sep8",
+        "sources_text"
+      ]
+    },
+    "setup_hint": {
+      "type": "Alert",
+      "props": {
+        "type": "info",
+        "title": "Setup hint",
+        "message": "add tickers to skills/monitor-kalshi/watchlist.md to track specific events (e.g. KXFED-26DEC, KXGDP-26JUL30, KXBTC-26MAY1517)"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "btc_today_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "btc_today_heading",
+        "btc_today_table",
+        "btc_today_mover",
+        "btc_today_footnote"
+      ]
+    },
+    "btc_today_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Bitcoin price today (KXBTC-26MAY1017) — Crypto [expires 9pm UTC]",
+        "level": "h3"
+      }
+    },
+    "btc_today_table": {
+      "type": "Table",
+      "props": {
+        "columns": [
+          "Market",
+          "prob",
+          "Δ24h",
+          "vol_24h",
+          "spread"
+        ],
+        "rows": [
+          [
+            "BTC ~$80,875 range",
+            "22%",
+            "N/A¹",
+            "$1.5k",
+            "N/A¹"
+          ],
+          [
+            "BTC ~$80,625 range",
+            "21%",
+            "N/A¹",
+            "$456",
+            "N/A¹"
+          ],
+          [
+            "BTC ~$81,125 range",
+            "21%",
+            "N/A¹",
+            "$475",
+            "N/A¹"
+          ]
+        ]
+      }
+    },
+    "btc_today_mover": {
+      "type": "Text",
+      "props": {
+        "text": "mover: BTC consensus for today's 5pm EDT close is $80,750–$81,000 (22% modal bucket)",
+        "variant": "body"
+      }
+    },
+    "btc_today_footnote": {
+      "type": "Text",
+      "props": {
+        "text": "¹ expiry-day market: all volume is new, no prior price reference",
+        "variant": "caption"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "fed_dec_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "fed_dec_heading",
+        "fed_dec_table",
+        "fed_dec_mover"
+      ]
+    },
+    "fed_dec_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Fed December 2026 (KXFED-26DEC) — Economics",
+        "level": "h3"
+      }
+    },
+    "fed_dec_table": {
+      "type": "Table",
+      "props": {
+        "columns": [
+          "Market",
+          "prob",
+          "Δ24h",
+          "vol_24h",
+          "spread"
+        ],
+        "rows": [
+          [
+            "Rate above 2.75%",
+            "84%",
+            "0pp ●",
+            "$1.3k",
+            "17pp (thin)"
+          ]
+        ]
+      }
+    },
+    "fed_dec_mover": {
+      "type": "Text",
+      "props": {
+        "text": "mover: flat all day, single 1,500-contract block at $0.84; thin book, no conviction signal",
+        "variant": "body"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "fed_jun_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "fed_jun_heading",
+        "fed_jun_table",
+        "fed_jun_mover",
+        "fed_jun_footnote"
+      ]
+    },
+    "fed_jun_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Fed June 2026 (KXFED-26JUN) — Economics",
+        "level": "h3"
+      }
+    },
+    "fed_jun_table": {
+      "type": "Table",
+      "props": {
+        "columns": [
+          "Market",
+          "prob",
+          "Δ24h",
+          "vol_24h",
+          "spread"
+        ],
+        "rows": [
+          [
+            "Rate above 3.50%",
+            "96%",
+            "N/A²",
+            "$854",
+            "N/A²"
+          ],
+          [
+            "Rate above 3.75%",
+            "1%",
+            "N/A²",
+            "$19",
+            "N/A²"
+          ]
+        ]
+      }
+    },
+    "fed_jun_mover": {
+      "type": "Text",
+      "props": {
+        "text": "mover: June meeting locked at 3.50% upper bound — May FOMC appears to have cut to 3.50%",
+        "variant": "body"
+      }
+    },
+    "fed_jun_footnote": {
+      "type": "Text",
+      "props": {
+        "text": "²no prior-day candlestick data; SRC=price_only",
+        "variant": "caption"
+      }
+    },
+    "sep4": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "gdp_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "gdp_heading",
+        "gdp_table",
+        "gdp_mover"
+      ]
+    },
+    "gdp_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Q2 GDP 2026 (KXGDP-26JUL30) — Economics",
+        "level": "h3"
+      }
+    },
+    "gdp_table": {
+      "type": "Table",
+      "props": {
+        "columns": [
+          "Market",
+          "prob",
+          "Δ24h",
+          "vol_24h",
+          "spread"
+        ],
+        "rows": [
+          [
+            "Above 2.0%",
+            "57%",
+            "0pp ●",
+            "$121",
+            "N/A²"
+          ],
+          [
+            "Above 1.5%",
+            "70%",
+            "0pp ●",
+            "$76",
+            "N/A²"
+          ],
+          [
+            "Above 2.5%",
+            "38%",
+            "0pp ●",
+            "$29",
+            "N/A²"
+          ]
+        ]
+      }
+    },
+    "gdp_mover": {
+      "type": "Text",
+      "props": {
+        "text": "mover: stable, market pricing ~57% odds of >2% real GDP growth in Q2 — no catalyst",
+        "variant": "body"
+      }
+    },
+    "sep5": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "btc_may15_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "btc_may15_heading",
+        "btc_may15_table",
+        "btc_may15_mover"
+      ]
+    },
+    "btc_may15_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Bitcoin May 15 (KXBTC-26MAY1517) — Crypto",
+        "level": "h3"
+      }
+    },
+    "btc_may15_table": {
+      "type": "Table",
+      "props": {
+        "columns": [
+          "Market",
+          "prob",
+          "Δ24h",
+          "vol_24h",
+          "spread"
+        ],
+        "rows": [
+          [
+            "BTC ~$81,750 range",
+            "9%",
+            "N/A²",
+            "$229",
+            "N/A²"
+          ]
+        ]
+      }
+    },
+    "btc_may15_mover": {
+      "type": "Text",
+      "props": {
+        "text": "mover: modest vol, implies market sees BTC staying near $80–$82k through May 15",
+        "variant": "body"
+      }
+    },
+    "sep6": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "alerts_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "alerts_heading",
+        "alerts_content"
+      ]
+    },
+    "alerts_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "ALERTS (>5pp move on non-thin book)",
+        "level": "h3"
+      }
+    },
+    "alerts_content": {
+      "type": "Text",
+      "props": {
+        "text": "none",
+        "variant": "body"
+      }
+    },
+    "sep7": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "trending_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "trending_heading",
+        "trending_item1",
+        "trending_item2"
+      ]
+    },
+    "trending_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Trending (not tracked)",
+        "level": "h3"
+      }
+    },
+    "trending_item1": {
+      "type": "Text",
+      "props": {
+        "text": "KXNEWPOPE-70: Next Pope market — long-dated novelty, ~$25k total OI",
+        "variant": "body"
+      }
+    },
+    "trending_item2": {
+      "type": "Text",
+      "props": {
+        "text": "KXFED-26JUN: June FOMC has 98k+ contracts in open interest — high-liquidity anchor",
+        "variant": "body"
+      }
+    },
+    "sep8": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "sources_text": {
+      "type": "Text",
+      "props": {
+        "text": "sources: events=ok candlesticks=partial(2/5 markets) orderbook=ok(1)",
+        "variant": "caption"
+      }
+    }
+  }
+}
