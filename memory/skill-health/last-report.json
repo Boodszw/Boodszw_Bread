@@ -1,0 +1,15 @@
+{
+  "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "last_notified_at": "2026-05-11T18:03:44Z",
+  "last_run_at": "2026-05-11T18:03:44Z",
+  "classification": {
+    "critical": [],
+    "degraded": [],
+    "flapping": [],
+    "warning": [],
+    "healthy_count": 5,
+    "healthy": ["heartbeat", "market-context-refresh", "monitor-kalshi", "narrative-tracker", "token-movers"],
+    "no_data": ["cost-report", "defi-monitor", "monitor-polymarket", "on-chain-monitor", "skill-health", "token-alert", "token-pick", "token-report"]
+  },
+  "notes": "First skill-health run. INDEX.md empty (no open issues). skill-runs script unavailable in sandbox — SKILL_HEALTH_PARTIAL. 8 enabled skills lack cron-state entries, suggesting scheduler gaps noted in 2026-05-10 heartbeat logs (12:00 / 12:30 / 18:00 cohorts skipped); informational only, not flagged as failures since none have ever dispatched."
+}

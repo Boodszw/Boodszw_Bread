@@ -1,0 +1,61 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Skill Health",
+        "description": "2026-05-11"
+      },
+      "children": [
+        "alert_status",
+        "stack_metrics"
+      ]
+    },
+    "alert_status": {
+      "type": "Alert",
+      "props": {
+        "type": "success",
+        "title": "HEALTH: OK"
+      },
+      "children": []
+    },
+    "stack_metrics": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "stat_healthy",
+        "stat_open",
+        "stat_resolved"
+      ]
+    },
+    "stat_healthy": {
+      "type": "Stat",
+      "props": {
+        "label": "Skills healthy",
+        "value": "5"
+      },
+      "children": []
+    },
+    "stat_open": {
+      "type": "Stat",
+      "props": {
+        "label": "Open issues",
+        "value": "0"
+      },
+      "children": []
+    },
+    "stat_resolved": {
+      "type": "Stat",
+      "props": {
+        "label": "Resolved this run",
+        "value": "0"
+      },
+      "children": []
+    }
+  }
+}
