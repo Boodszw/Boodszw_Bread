@@ -56,5 +56,9 @@
     "total_failures": 0,
     "consecutive_failures": 0,
     "success_rate": 1
+  },
+  "skill-health": {
+    "last_dispatch": "2026-05-11T18:02:31Z",
+    "last_status": "dispatched"
   }
 }
