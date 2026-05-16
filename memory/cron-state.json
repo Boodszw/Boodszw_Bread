@@ -1,13 +1,13 @@
 {
   "heartbeat": {
-    "last_status": "failed",
+    "last_status": "dispatched",
     "last_success": "2026-05-12T08:11:29Z",
     "total_runs": 17,
     "total_successes": 5,
     "total_failures": 12,
     "consecutive_failures": 12,
     "success_rate": 0.29,
-    "last_dispatch": "2026-05-15T23:40:56Z",
+    "last_dispatch": "2026-05-16T07:29:33Z",
     "last_failed": "2026-05-15T23:41:12Z",
     "last_error": "c4309d5\",\"total_cost_usd\":0,\"usage\":{\"input_tokens\":0,\"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":0,\"output_tokens\":0,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\""
   },
