@@ -115,13 +115,13 @@
   },
   "on-chain-monitor": {
     "last_status": "failed",
-    "last_failed": "2026-06-13T14:24:20Z",
-    "total_runs": 89,
+    "last_failed": "2026-06-13T15:54:04Z",
+    "total_runs": 90,
     "total_successes": 0,
-    "total_failures": 89,
-    "consecutive_failures": 89,
+    "total_failures": 90,
+    "consecutive_failures": 90,
     "success_rate": 0,
-    "last_error": "6f0484a\",\"total_cost_usd\":0,\"usage\":{\"input_tokens\":0,\"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":0,\"output_tokens\":0,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"",
+    "last_error": "42e2572\",\"total_cost_usd\":0,\"usage\":{\"input_tokens\":0,\"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":0,\"output_tokens\":0,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"",
     "last_dispatch": "2026-05-27T12:02:42Z"
   },
   "monitor-polymarket": {
