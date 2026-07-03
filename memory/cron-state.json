@@ -14,13 +14,13 @@
   "token-movers": {
     "last_status": "failed",
     "last_success": "2026-05-10T07:22:54Z",
-    "total_runs": 354,
+    "total_runs": 355,
     "total_successes": 1,
-    "total_failures": 353,
-    "consecutive_failures": 353,
+    "total_failures": 354,
+    "consecutive_failures": 354,
     "success_rate": 0,
-    "last_failed": "2026-07-03T18:54:10Z",
-    "last_error": "974bc61\",\"total_cost_usd\":0,\"usage\":{\"input_tokens\":0,\"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":0,\"output_tokens\":0,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"",
+    "last_failed": "2026-07-03T20:07:22Z",
+    "last_error": "e63df27\",\"total_cost_usd\":0,\"usage\":{\"input_tokens\":0,\"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":0,\"output_tokens\":0,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"",
     "last_dispatch": "2026-05-27T12:02:42Z"
   },
   "create-skill": {
