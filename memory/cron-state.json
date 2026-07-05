@@ -36,13 +36,13 @@
     "last_dispatch": "2026-05-16T17:43:01Z",
     "last_status": "failed",
     "last_success": "2026-05-10T14:56:27Z",
-    "total_runs": 337,
+    "total_runs": 338,
     "total_successes": 1,
-    "total_failures": 336,
-    "consecutive_failures": 336,
+    "total_failures": 337,
+    "consecutive_failures": 337,
     "success_rate": 0,
-    "last_failed": "2026-07-05T22:13:03Z",
-    "last_error": "db2b73c\",\"total_cost_usd\":0,\"usage\":{\"input_tokens\":0,\"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":0,\"output_tokens\":0,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\""
+    "last_failed": "2026-07-05T23:17:34Z",
+    "last_error": "cdf95d7\",\"total_cost_usd\":0,\"usage\":{\"input_tokens\":0,\"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":0,\"output_tokens\":0,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\""
   },
   "market-context-refresh": {
     "last_dispatch": "2026-05-17T07:45:49Z",
