@@ -48,13 +48,13 @@
     "last_dispatch": "2026-05-17T07:45:49Z",
     "last_status": "failed",
     "last_success": "2026-05-10T14:50:42Z",
-    "total_runs": 592,
+    "total_runs": 593,
     "total_successes": 1,
-    "total_failures": 591,
-    "consecutive_failures": 591,
+    "total_failures": 592,
+    "consecutive_failures": 592,
     "success_rate": 0,
-    "last_failed": "2026-07-18T18:32:36Z",
-    "last_error": "11165ef\",\"total_cost_usd\":0,\"usage\":{\"input_tokens\":0,\"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":0,\"output_tokens\":0,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\""
+    "last_failed": "2026-07-18T19:43:59Z",
+    "last_error": "a9bf5d8\",\"total_cost_usd\":0,\"usage\":{\"input_tokens\":0,\"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":0,\"output_tokens\":0,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\""
   },
   "narrative-tracker": {
     "last_dispatch": "2026-05-27T12:02:42Z",
