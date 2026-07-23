@@ -14,12 +14,12 @@
   "token-movers": {
     "last_status": "failed",
     "last_success": "2026-05-10T07:22:54Z",
-    "total_runs": 680,
+    "total_runs": 681,
     "total_successes": 1,
-    "total_failures": 679,
-    "consecutive_failures": 679,
+    "total_failures": 680,
+    "consecutive_failures": 680,
     "success_rate": 0,
-    "last_failed": "2026-07-23T01:12:10Z",
+    "last_failed": "2026-07-23T04:32:09Z",
     "last_error": "\"output_tokens\":0,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":0,\"ephemeral_5m_input_tokens\":0},\"inference",
     "last_dispatch": "2026-05-27T12:02:42Z"
   },
