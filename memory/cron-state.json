@@ -60,12 +60,12 @@
     "last_dispatch": "2026-05-27T12:02:42Z",
     "last_status": "failed",
     "last_success": "2026-05-10T14:49:46Z",
-    "total_runs": 715,
+    "total_runs": 716,
     "total_successes": 1,
-    "total_failures": 714,
-    "consecutive_failures": 714,
+    "total_failures": 715,
+    "consecutive_failures": 715,
     "success_rate": 0,
-    "last_failed": "2026-07-23T20:33:02Z",
+    "last_failed": "2026-07-23T21:37:52Z",
     "last_error": "\"output_tokens\":0,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":0,\"ephemeral_5m_input_tokens\":0},\"inference"
   },
   "skill-health": {
