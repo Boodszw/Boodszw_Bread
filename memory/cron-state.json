@@ -14,13 +14,13 @@
   "token-movers": {
     "last_status": "failed",
     "last_success": "2026-05-10T07:22:54Z",
-    "total_runs": 811,
+    "total_runs": 812,
     "total_successes": 1,
-    "total_failures": 810,
-    "consecutive_failures": 810,
+    "total_failures": 811,
+    "consecutive_failures": 811,
     "success_rate": 0,
-    "last_failed": "2026-07-30T20:19:17Z",
-    "last_error": "equests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":0,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[],\"speed\":\"standard\"},\"mode",
+    "last_failed": "2026-07-30T21:35:27Z",
+    "last_error": "quests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":0,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[],\"speed\":\"standard\"},\"model",
     "last_dispatch": "2026-05-27T12:02:42Z"
   },
   "create-skill": {
