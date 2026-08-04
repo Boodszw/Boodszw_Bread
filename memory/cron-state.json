@@ -48,12 +48,12 @@
     "last_dispatch": "2026-05-17T07:45:49Z",
     "last_status": "failed",
     "last_success": "2026-05-10T14:50:42Z",
-    "total_runs": 918,
+    "total_runs": 920,
     "total_successes": 1,
-    "total_failures": 917,
-    "consecutive_failures": 917,
+    "total_failures": 919,
+    "consecutive_failures": 919,
     "success_rate": 0,
-    "last_failed": "2026-08-04T22:40:56Z",
+    "last_failed": "2026-08-04T23:41:08Z",
     "last_error": "equests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":0,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[],\"speed\":\"standard\"},\"mode"
   },
   "narrative-tracker": {
