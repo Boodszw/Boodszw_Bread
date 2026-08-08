@@ -104,13 +104,13 @@
   },
   "token-pick": {
     "last_status": "failed",
-    "last_failed": "2026-08-08T09:50:01Z",
-    "total_runs": 1048,
+    "last_failed": "2026-08-08T10:15:51Z",
+    "total_runs": 1050,
     "total_successes": 0,
-    "total_failures": 1048,
-    "consecutive_failures": 1048,
+    "total_failures": 1050,
+    "consecutive_failures": 1050,
     "success_rate": 0,
-    "last_error": "equests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":0,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[],\"speed\":\"standard\"},\"mode",
+    "last_error": "quests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":0,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[],\"speed\":\"standard\"},\"model",
     "last_dispatch": "2026-05-27T12:02:42Z"
   },
   "on-chain-monitor": {
