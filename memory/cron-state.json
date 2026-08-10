@@ -137,13 +137,13 @@
   },
   "token-report": {
     "last_status": "failed",
-    "last_failed": "2026-08-10T21:35:05Z",
-    "total_runs": 1133,
+    "last_failed": "2026-08-10T22:10:06Z",
+    "total_runs": 1135,
     "total_successes": 0,
-    "total_failures": 1133,
-    "consecutive_failures": 1133,
+    "total_failures": 1135,
+    "consecutive_failures": 1135,
     "success_rate": 0,
-    "last_error": "quests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":0,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[],\"speed\":\"standard\"},\"model",
+    "last_error": "equests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":0,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[],\"speed\":\"standard\"},\"mode",
     "last_dispatch": "2026-05-27T12:02:42Z"
   },
   "cost-report": {
