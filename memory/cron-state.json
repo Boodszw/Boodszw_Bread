@@ -126,11 +126,11 @@
   },
   "monitor-polymarket": {
     "last_status": "failed",
-    "last_failed": "2026-08-12T16:07:54Z",
-    "total_runs": 1199,
+    "last_failed": "2026-08-12T17:08:22Z",
+    "total_runs": 1200,
     "total_successes": 0,
-    "total_failures": 1199,
-    "consecutive_failures": 1199,
+    "total_failures": 1200,
+    "consecutive_failures": 1200,
     "success_rate": 0,
     "last_error": "equests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":0,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[],\"speed\":\"standard\"},\"mode",
     "last_dispatch": "2026-05-27T12:02:42Z"
