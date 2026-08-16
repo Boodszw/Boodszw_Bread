@@ -115,11 +115,11 @@
   },
   "on-chain-monitor": {
     "last_status": "failed",
-    "last_failed": "2026-08-16T19:51:04Z",
-    "total_runs": 1397,
+    "last_failed": "2026-08-16T19:59:56Z",
+    "total_runs": 1400,
     "total_successes": 0,
-    "total_failures": 1397,
-    "consecutive_failures": 1397,
+    "total_failures": 1400,
+    "consecutive_failures": 1400,
     "success_rate": 0,
     "last_error": "equests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":0,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[],\"speed\":\"standard\"},\"mode",
     "last_dispatch": "2026-05-27T12:02:42Z"
