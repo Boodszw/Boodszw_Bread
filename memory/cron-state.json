@@ -148,11 +148,11 @@
   },
   "cost-report": {
     "last_status": "failed",
-    "last_failed": "2026-08-17T00:00:47Z",
-    "total_runs": 1280,
+    "last_failed": "2026-08-17T01:25:38Z",
+    "total_runs": 1281,
     "total_successes": 0,
-    "total_failures": 1280,
-    "consecutive_failures": 1280,
+    "total_failures": 1281,
+    "consecutive_failures": 1281,
     "success_rate": 0,
     "last_error": "equests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":0,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[],\"speed\":\"standard\"},\"mode"
   }
