@@ -137,11 +137,11 @@
   },
   "token-report": {
     "last_status": "failed",
-    "last_failed": "2026-08-18T04:45:20Z",
-    "total_runs": 1484,
+    "last_failed": "2026-08-18T05:14:02Z",
+    "total_runs": 1485,
     "total_successes": 0,
-    "total_failures": 1484,
-    "consecutive_failures": 1484,
+    "total_failures": 1485,
+    "consecutive_failures": 1485,
     "success_rate": 0,
     "last_error": "equests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":0,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[],\"speed\":\"standard\"},\"mode",
     "last_dispatch": "2026-05-27T12:02:42Z"
