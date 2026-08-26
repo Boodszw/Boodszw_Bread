@@ -60,13 +60,13 @@
     "last_dispatch": "2026-05-27T12:02:42Z",
     "last_status": "failed",
     "last_success": "2026-05-10T14:49:46Z",
-    "total_runs": 2043,
+    "total_runs": 2045,
     "total_successes": 1,
-    "total_failures": 2042,
-    "consecutive_failures": 2042,
+    "total_failures": 2044,
+    "consecutive_failures": 2044,
     "success_rate": 0,
-    "last_failed": "2026-08-26T10:03:56Z",
-    "last_error": "n\":\"sdk_opt_in_required\",\"subagent_stats\":{\"spawned\":0,\"requested\":{\"background\":0,\"foreground\":0,\"unset\":0},\"started_in_background\":0,\"max_depth\":0,\"spawned_by_subagents\":0,\"completed\":0,\"failed\":0,\""
+    "last_failed": "2026-08-26T10:44:15Z",
+    "last_error": "on\":\"sdk_opt_in_required\",\"subagent_stats\":{\"spawned\":0,\"requested\":{\"background\":0,\"foreground\":0,\"unset\":0},\"started_in_background\":0,\"max_depth\":0,\"spawned_by_subagents\":0,\"completed\":0,\"failed\":0,"
   },
   "skill-health": {
     "last_dispatch": "2026-05-27T23:47:21Z",
