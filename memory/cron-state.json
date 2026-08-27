@@ -126,13 +126,13 @@
   },
   "monitor-polymarket": {
     "last_status": "failed",
-    "last_failed": "2026-08-27T10:37:26Z",
-    "total_runs": 2030,
+    "last_failed": "2026-08-27T20:44:28Z",
+    "total_runs": 2031,
     "total_successes": 0,
-    "total_failures": 2030,
-    "consecutive_failures": 2030,
+    "total_failures": 2031,
+    "consecutive_failures": 2031,
     "success_rate": 0,
-    "last_error": "agent_stats\":{\"spawned\":0,\"requested\":{\"background\":0,\"foreground\":0,\"unset\":0},\"started_in_background\":0,\"max_depth\":0,\"spawned_by_subagents\":0,\"completed\":0,\"failed\":0,\"killed\":{\"parent\":0,\"user\":0,",
+    "last_error": "on\":\"sdk_opt_in_required\",\"subagent_stats\":{\"spawned\":0,\"requested\":{\"background\":0,\"foreground\":0,\"unset\":0},\"started_in_background\":0,\"max_depth\":0,\"spawned_by_subagents\":0,\"completed\":0,\"failed\":0,",
     "last_dispatch": "2026-05-27T12:02:42Z"
   },
   "token-report": {
