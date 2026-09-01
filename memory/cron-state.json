@@ -104,11 +104,11 @@
   },
   "token-pick": {
     "last_status": "failed",
-    "last_failed": "2026-09-01T21:56:22Z",
-    "total_runs": 2071,
+    "last_failed": "2026-09-01T23:42:41Z",
+    "total_runs": 2072,
     "total_successes": 0,
-    "total_failures": 2071,
-    "consecutive_failures": 2071,
+    "total_failures": 2072,
+    "consecutive_failures": 2072,
     "success_rate": 0,
     "last_error": "agent_stats\":{\"spawned\":0,\"requested\":{\"background\":0,\"foreground\":0,\"unset\":0},\"started_in_background\":0,\"max_depth\":0,\"spawned_by_subagents\":0,\"completed\":0,\"failed\":0,\"killed\":{\"parent\":0,\"user\":0,",
     "last_dispatch": "2026-05-27T12:02:42Z"
