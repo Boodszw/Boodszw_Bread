@@ -2,13 +2,13 @@
   "heartbeat": {
     "last_status": "failed",
     "last_success": "2026-05-12T08:11:29Z",
-    "total_runs": 2012,
+    "total_runs": 2014,
     "total_successes": 5,
-    "total_failures": 2007,
-    "consecutive_failures": 2007,
+    "total_failures": 2009,
+    "consecutive_failures": 2009,
     "success_rate": 0,
     "last_dispatch": "2026-05-27T12:02:42Z",
-    "last_failed": "2026-09-10T21:36:45Z",
+    "last_failed": "2026-09-10T23:23:08Z",
     "last_error": "awned\":0,\"requested\":{\"background\":0,\"foreground\":0,\"unset\":0},\"started_in_background\":0,\"max_depth\":0,\"spawned_by_subagents\":0,\"completed\":0,\"failed\":0,\"killed\":{\"parent\":0,\"user\":0,\"system\":0},\"refu"
   },
   "token-movers": {
