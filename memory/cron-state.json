@@ -104,11 +104,11 @@
   },
   "token-pick": {
     "last_status": "failed",
-    "last_failed": "2026-09-25T05:25:50Z",
-    "total_runs": 2289,
+    "last_failed": "2026-09-25T10:20:50Z",
+    "total_runs": 2290,
     "total_successes": 0,
-    "total_failures": 2289,
-    "consecutive_failures": 2289,
+    "total_failures": 2290,
+    "consecutive_failures": 2290,
     "success_rate": 0,
     "last_error": "awned\":0,\"requested\":{\"background\":0,\"foreground\":0,\"unset\":0},\"started_in_background\":0,\"max_depth\":0,\"spawned_by_subagents\":0,\"completed\":0,\"failed\":0,\"killed\":{\"parent\":0,\"user\":0,\"system\":0},\"refu",
     "last_dispatch": "2026-05-27T12:02:42Z"
