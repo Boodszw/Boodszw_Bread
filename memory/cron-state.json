@@ -36,12 +36,12 @@
     "last_dispatch": "2026-05-16T17:43:01Z",
     "last_status": "failed",
     "last_success": "2026-05-10T14:56:27Z",
-    "total_runs": 2542,
+    "total_runs": 2543,
     "total_successes": 1,
-    "total_failures": 2541,
-    "consecutive_failures": 2541,
+    "total_failures": 2542,
+    "consecutive_failures": 2542,
     "success_rate": 0,
-    "last_failed": "2026-11-13T21:38:37Z",
+    "last_failed": "2026-11-14T01:43:59Z",
     "last_error": "ax_depth\":0,\"spawned_by_subagents\":0,\"completed\":0,\"failed\":0,\"killed\":{\"parent\":0,\"user\":0,\"system\":0},\"refused\":{\"depth_limit\":0,\"concurrency_limit\":0,\"budget\":0},\"by_type\":{}},\"safety_stops\":0,\"is_"
   },
   "market-context-refresh": {
