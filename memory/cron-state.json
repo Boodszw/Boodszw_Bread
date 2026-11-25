@@ -115,11 +115,11 @@
   },
   "on-chain-monitor": {
     "last_status": "failed",
-    "last_failed": "2026-11-24T16:12:32Z",
-    "total_runs": 2611,
+    "last_failed": "2026-11-25T00:41:28Z",
+    "total_runs": 2612,
     "total_successes": 0,
-    "total_failures": 2611,
-    "consecutive_failures": 2611,
+    "total_failures": 2612,
+    "consecutive_failures": 2612,
     "success_rate": 0,
     "last_error": "ax_depth\":0,\"spawned_by_subagents\":0,\"completed\":0,\"failed\":0,\"killed\":{\"parent\":0,\"user\":0,\"system\":0},\"refused\":{\"depth_limit\":0,\"concurrency_limit\":0,\"budget\":0},\"by_type\":{}},\"safety_stops\":0,\"is_",
     "last_dispatch": "2026-05-27T12:02:42Z"
