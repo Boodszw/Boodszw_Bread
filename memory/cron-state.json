@@ -137,11 +137,11 @@
   },
   "token-report": {
     "last_status": "failed",
-    "last_failed": "2026-11-28T02:17:47Z",
-    "total_runs": 2657,
+    "last_failed": "2026-11-28T10:33:21Z",
+    "total_runs": 2661,
     "total_successes": 0,
-    "total_failures": 2657,
-    "consecutive_failures": 2657,
+    "total_failures": 2661,
+    "consecutive_failures": 2661,
     "success_rate": 0,
     "last_error": "ax_depth\":0,\"spawned_by_subagents\":0,\"completed\":0,\"failed\":0,\"killed\":{\"parent\":0,\"user\":0,\"system\":0},\"refused\":{\"depth_limit\":0,\"concurrency_limit\":0,\"budget\":0},\"by_type\":{}},\"safety_stops\":0,\"is_",
     "last_dispatch": "2026-05-27T12:02:42Z"
